@@ -40,4 +40,18 @@ test cases but we automate regression testing test cases
 
 
 Software Development Life cycle --> is during developing any kind software what all the stages is there its call as developmnet life cycle 
-   
+stages 
+1. requirement collection 
+2. Fesability requirement ----> hr team, business analyst, architect team, finance team they discuss about each and everything 
+all the resources enough engineers 
+3. design --- >> this stage contains 2 part low level design high level design 
+low level design each and every feature of application 
+high level design is overrole design general design of application 
+4.code 
+5. testing
+6 releasing --- this stage is like installation and implementation 
+7 maintenance ---> means after giving the software to the customer within 6 month or 1 year it depends any problem 
+then solving 
+
+
+ 
