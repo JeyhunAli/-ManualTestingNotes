@@ -54,4 +54,11 @@ high level design is overrole design general design of application
 then solving 
 
 
+What is Component Testing and it's types?
+component like in login page name adress phone num email some like this fields call component 
+testing each and every component of appliaction totally and regresly is calls component testing 
+like doing positive testing negative testing 
+in some company it calls as functional testing as well 
+
+
  
