@@ -1,3 +1,4 @@
+
 ManualTesting Notes  
 BlackBoxTesting is basically testing the application functionality without looking into a code 
 how it's written in application called as BlackBox Testing.
@@ -59,6 +60,12 @@ component like in login page name adress phone num email some like this fields c
 testing each and every component of appliaction totally and regresly is calls component testing 
 like doing positive testing negative testing 
 in some company it calls as functional testing as well 
+here also we do under testing over testing and optimise testing 
+
+
+
+
+
 
 
  
