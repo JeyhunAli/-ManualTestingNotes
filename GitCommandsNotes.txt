@@ -1,1 +1,2 @@
-in this note i will write most of the git process from terminal
+in this note i will write most of the git process from terminal 
+some new notes coming
