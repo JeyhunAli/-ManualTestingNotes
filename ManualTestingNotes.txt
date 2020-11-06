@@ -66,7 +66,12 @@ what is usability testing?--->> is how friendly the application testing the user
 proper messeges -- for example anything wrong passing data for  registration should throw some message for user to understand it 
 
 
-
+Reliability testing and Recovery Testing
+ this testing happening to check how relible the application how its done 
+testing functionality of application again again it called Reliability testing for example testing login functionality multiple times to make sure how its relibly its basically testing application continiously and some period of time it calls Reliability testing
+recovery testing is to check how application behaving after crushes or any disaster for example google Chrome 
+when the laptop not responding or turning off 
+when u turning it on again chrome says retore pages thats is the recovery testing 
 
 
  
