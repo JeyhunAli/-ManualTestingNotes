@@ -62,7 +62,8 @@ like doing positive testing negative testing
 in some company it calls as functional testing as well 
 here also we do under testing over testing and optimise testing 
 
-
+what is usability testing?--->> is how friendly the application testing the user friendliness of application is call test usability  for that testing how friendly is how accesible , how understanble designed . help center should be in application UA
+proper messeges -- for example anything wrong passing data for  registration should throw some message for user to understand it 
 
 
 
