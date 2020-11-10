@@ -1,0 +1,13 @@
+2 type of the jira 
+cloud and server instance 
+
+jira is project managment issue tracking and  ug tracking tool for agile software team
+made by Atlassian company by Austarliya 
+the name jira is inherited from japanease word GOJIRA which means godzilla
+
+issue types in jira 
+story -> track functionality or features thats based on user s goals
+bug
+epic -> big user stories need to be broken down 
+task 
+subtask
