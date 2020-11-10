@@ -51,3 +51,42 @@ then manage plugins -> manage plugins -> Global Tool Configuration then give the
 then apply and save 
 
 
+after all this you copy your github link where your project is 
+then add it into jenkins add some report initally extent report html report 
+but when u add extent report after executing it will generate the report but it will be kind a broken 
+just need to go to the google chrome download one csp plugin for chrome activate oit refresh the page then it will be proper 
+report
+
+if the company dont allow that u can go manage jenkins -> scrtpt console add this line code 
+System.setProperty("Hudson.model.DirectoryBrowserSupport.CSP", "") then run you will result written below 
+this not allowed in some company u can ask devops team
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
