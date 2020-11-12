@@ -74,4 +74,24 @@ when the laptop not responding or turning off
 when u turning it on again chrome says retore pages thats is the recovery testing 
 
 
+Talking about test case design techniques and Types of the test case designing in Software testing life cycle			
+1 error guessing techniques --> is like thinking in a very creative way to write negative test cases in order to break			
+2.Equivalence class partitioning ---> means let's say you have text box field and it accepting numbers from 1-400			
+in this case in order to check each and every number if it's accepting or not u just breaking it down into small class like  			
+from 1-100, 101-200, 201-300, 301-400   and from each and every couple you passing one number let's say  first - 77, second 177 			
+third 266 , 4th 399  If it's accepting it means it passing and it's called as Equivalence class partitioning 			
+3.Boundary Value Analysis means testing the value around the given value like   if requirement says you have to test numbers between			
+20 and 25  then we write test 19 20 21 and 24 25 26 			
+4.Decision Table Techniques  ---> here we check multiple condition, combinations and rule criteria  here condition take as 			
+input and actions take as an output.  When I say condition and rules I take them as positive and negative TC bases based condition			
+and I apply them in a appropiate way within rules 			
+5. State Transition Techniques --> this means testing some component of application with state what I mean by that let's you are trying 			
+to login the application after some time let's say after 6 attempts with wrong password u are bloked  the state of the steps . I mean all 			
+all these attepts called as state transition technique. Basically u are testing application with 6 times with correct credentials and checking			
+how application is behaving and after that 6 times until u block u are providing wrog credentials to check how state transition behaving 			
+
+
+
+
+
  
