@@ -1,0 +1,5 @@
+
+https://dl.bintray.com/testng-team/testng-eclipse-release/ 
+
+this is the url to download testng to eclipse
+

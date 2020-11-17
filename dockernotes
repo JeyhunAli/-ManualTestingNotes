@@ -1,0 +1,173 @@
+Docker is software which will help testing team or dev team to build to manage to secure the application 
+anywhere in any platform 
+
+earlier before the docker how was that working let me explain 
+lets say some years back we had one hardware on that hard ware we were installing one opartaion system 
+like linuxOs or windows or mac and on that operation system we were installing one sofwtare its called hypervisor which is provided by AWS OR CISCO
+OR SOME OTHER COMPANIES 
+
+so on that hypervisor we had to install operating server os  for specific appliactions sofware for example 
+my sql on windows operating server, tomcat another operating server, jenkins on mac operating server, like different different vm-vertual machines 
+this is prosedure is cost more money more effort more configuration because each and every server, application needs its own configuration 
+installation on vm to achieve better result 
+
+but in 2013 docker container came to the market in 2010 they strarted to work on that and they released in 2013 
+how is that work so 
+one hardware in any platform it can be windows mac linuxOS  --> donwloading one docker engine running on that opearting system 
+here we dont need any kind vm, or hypervisor
+hypervisor- is where virtual machine vm is running its playing as a hardware role its also calss host machine which is hosting to each and every 
+virtual machine to run 
+
+once we downloaded docker engine to our operting system 
+on top of that we can download multiple containers for each and every software appliaction 
+container is software image which is holding all the information all the important files about that particular software 
+
+lets say i want to dowload mySQL or jenkins or any other sofware for that i need  libraries, binaries, port, and ip adress 
+which is related all to one software application 
+all this comes under one container and it will behave like actual software 
+and in docker container no need to spend extra time for configuration installation make sure all the important files jars are downloaded settet up 
+docker container takes care about all of them 
+
+one of the biggest advantage of the docker container its 
+lets say i have docker container and i have donwloaded multiple software on my operating system 
+docker container is managing all the software so they are totally isolated from each other 
+those software applications they are not using each others resources  
+resources i mean ram of the oprating system size of the operating system memory of the operating system 
+comunication between those operating system are not happening trough docker container 
+they are working independently thats why we dont need multiple operating system to execute or work on different differen operating systems 
+
+so let me explain how ram memory is working on docker container 
+lets say in my mac machine i have 16gb ram and i have i allocated 6gb ram for jenkins and out of 6 jenkins is using 4gb ram 2gb is pending 
+and my sql is using 4 gb out of 6gb pending 2 gb  so two pending gb plus 4 gb is wasted memory 
+
+in earlier when we were using hypervisor technology that wasted gb ram  we coudnt assing to another sofwtare application so it was wasted 
+
+but in docker container that pending gb ram is sharing by docker container among other application so we are not wasting any memory 
+
+another biggets advantages of docker container to achieve cross bros=wser and cross platform testing through only one opearting system 
+
+downloading one hub hosting service then downloading all the different platform like windows, ie, safari, chrome then execute all the test on different 
+platforms independently achieving selebium grid 
+
+docker is like based on linux command .....  to download docker go to the hub.docker.com and download it. its a little bit faster than windows in mac 
+
+
+docker commands 
+docker --version
+docker -v
+docker 
+docker run hello-world ---->> This message shows that your installation appears to be working correctly.
+docker ps ---->> shows how many containers are running 
+docker ps -a  ----->> shows list of containers
+docker rm (image id -->> 0b9d1e7634e) for removing 
+
+some of the container you can find in hub.docker.com
+jeyhun01 as............alliy - alliys  
+docker pull seqvence/static-site ---->> dummy container with the message
+Jeys-MBP:manualTesting jey$ docker run -d -P seqvence/static-site ------dummy container 
+all the images whatever softwre uwanted to downlaod they are available in hub.docker.com
+when u pull the images container is not creating 
+to create the container u have to run the images
+docker images ------>> check how many images are available 
+docker pull ubuntu ---->>> lets say u pulled ubuntu its available in the system but its not running 
+to run it we use:
+docker run -it -d ubuntu ---->> here -it means interactive mode -d means create dimend thread so i can access it 
+
+if something wrong there option:
+docker restart and container id it will restart specific container
+docker stop and container id it will stop the container 
+docker start and container id and it will start 
+if u want to find the docker container id which is not running for that 
+docker ps -a   means all the list 
+
+docker exec -it containerid bash  ---->> it will take u to root of the container
+root@f038df30dd7c:/# ls   list 
+
+when u try to remove any container simple 
+docker rm container id 
+but before stop the container 
+docker stop container id 
+then docker rm container id 
+once u deleted container id after that if you will this command 
+docker images you will see same image still there if you want to delete images to simple 
+docker rmi image id  here rm ---> remove rmi---->> is remove image
+
+
+another command 
+docker kill conatiner id  ----- > this will kill the conatiner id forcefully
+if you want to get all the information about that container u can run 
+docker inspect contaner id --- >> it will give u all the info in the form of jason
+
+docker image prune -a will delete image which is related specific container 
+docker image ls ----->> list of the images
+
+docker system prune -a ----->>> will delete images and containers 
+this will remove 
+-all stopped containers 
+all networks not in use ones 
+- all images 
+all build cache 
+
+
+---------------------------------------------------------------------
+from box 
+docker pull selenium/hub
+docker images
+docker pull selenium/node-chrome-debug
+docker images 
+docker pull selenium/node-firefox-debug
+docker images
+
+to create the container out of these 
+docker run -d -p 4444:4444 --name selenium-hub -P selenium/hub
+explanation --   
+-d run on the background 
+-p port num
+-- name give any name 
+-P selenium image
+
+
+then go to browswer localhost:4444  -->> you will see grid container started 
+docker run -d -P --link selenium-hub:hub selenium/node-chrome-debug  ---->> one chrome container created 
+if you one more than one or multiple chrome container you can run this command several time and you can have chrome containers up-and running 
+
+for firefox you can run 
+docker run -d -P --link selenium-hub:hub selenium/node-firefox-debug
+
+
+
+
+
+
+
+
+if you want to use docker in windows download it from  docker for windows toolbox 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

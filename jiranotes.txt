@@ -1,0 +1,16 @@
+2 type of the jira 
+cloud and server instance 
+
+jira is project management issue tracking and  ug tracking tool for agile software team
+made by Atlasssian company by Australia 
+the name jira is inherited from Japanese word GOJIRA which means Godzilla
+
+issue types in jira 
+story -> track functionality or features thats based on user s goals
+bug
+epic -> big user stories need to be broken down 
+task 
+subtask
+
+Link for zephyr tutorial  
+https://www.youtube.com/watch?v=xdsdrntXv8Q&list=PLL34mf651faOA2RE8VXaoeSAb7XBlc7-n

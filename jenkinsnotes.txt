@@ -1,0 +1,92 @@
+to download jenkins go to  --->>>https://updates.jenkins-ci.org/download/war/
+click on permalink to the latest after download unzip it
+go to exact location of the war file in your OS
+then go to the termianl
+java -jar jenkins.war  run this cmd on terminal or in cmd line  it will generate password
+
+copy that pswd
+got to to url
+write localhost:8080
+then enter the paswd
+then then clcik on install suggestion plugins then create username pwd then start to use jenkins
+
+
+
+nother concept along with jenkins is ngrok.com
+this something another amazing feature which is allow you as soon as you check in in the git repo jenkkins automatically built the triggers and execute
+yoour test cases no need to go again to jenkins and execute it
+
+
+for that first need to sign up on ngrok.com
+
+then its gonna provide with one token
+and port
+add then via terminal or in cmd
+then go to your github project directory add link then good to go
+
+its mandatory to add all the important plugins in order to execute all the test cases throughout jenkins
+if you want to create pipeline the most famous and with full feature one is blue ocean pipeline concept
+  
+when you are executing all your test cases make sure the reporting tool configuration is done correctly 
+either its extent report or allure report 
+
+java -jar jenkins.war  after downloading jenkins go to directory in the terminal then run this command
+
+------------------------------------------------------------------------------------------------------------------
+
+once UI of jenkins available then go to the manage jenkins --> Global tool configurations 
+uncheck automatic jdk download then provide with java patah first give it name for instance jdk 
+then go to the termianal echo $HAVA_HOME this cmd will print path of the java jdk 
+for the windows just go to the environemnt then copy the javahome 
+then copy the path and paste it jenkins where java_home 
+then scroll down give the name of the maven leave it automatic download then apply ans save 
+first and basic configuration 
+if your java home not set up in mac  just go vim or vi ~/.bash_profile if it there its ok if not then providde it 
+
+then go to the manage plugins add plugins search for testng add without restart
+then manage plugins -> available -> search for maven add maven integration 
+then manage plugins -> available -> search for allure add allure click on install without restart
+then manage plugins -> available -> search for html add html publisher instal without retart
+then manage plugins -> manage plugins -> Global Tool Configuration then give the name to allure then add version of allure 
+then apply and save 
+
+
+after all this you copy your github link where your project is 
+then add it into jenkins add some report initally extent report html report 
+but when u add extent report after executing it will generate the report but it will be kind a broken 
+just need to go to the google chrome download one csp plugin for chrome activate oit refresh the page then it will be proper 
+report
+
+if the company dont allow that u can go manage jenkins -> scrtpt console add this line code 
+System.setProperty("Hudson.model.DirectoryBrowserSupport.CSP", "") then run you will result written below 
+this not allowed in some company u can ask devops team
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
