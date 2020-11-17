@@ -40,14 +40,14 @@ retesting is basically done on the failed test cases regression testing is done 
 test cases but we automate regression testing test cases
 
 
-Software Development Life cycle --> is during developing any kind software what all the stages is there its call as developmnet life cycle 
+Software Development Life cycle --> is during developing any kind software what all the stages is there its call as development life cycle 
 stages 
 1. requirement collection 
-2. Fesability requirement ----> hr team, business analyst, architect team, finance team they discuss about each and everything 
+2. Feasibility requirement ----> hr team, business analyst, architect team, finance team they discuss about each and everything 
 all the resources enough engineers 
 3. design --- >> this stage contains 2 part low level design high level design 
 low level design each and every feature of application 
-high level design is overrole design general design of application 
+high level design is over-role design general design of application 
 4.code 
 5. testing
 6 releasing --- this stage is like installation and implementation 
@@ -56,22 +56,22 @@ then solving
 
 
 What is Component Testing and it's types?
-component like in login page name adress phone num email some like this fields call component 
-testing each and every component of appliaction totally and regresly is calls component testing 
+component like in login page name address phone num email some like this fields call component 
+testing each and every component of application totally and regresly is calls component testing 
 like doing positive testing negative testing 
 in some company it calls as functional testing as well 
-here also we do under testing over testing and optimise testing 
+here also we do under testing over testing and optimize testing 
 
-what is usability testing?--->> is how friendly the application testing the user friendliness of application is call test usability  for that testing how friendly is how accesible , how understanble designed . help center should be in application UA
-proper messeges -- for example anything wrong passing data for  registration should throw some message for user to understand it 
+what is usability testing?--->> is how friendly the application testing the user friendliness of application is call test usability  for that testing how friendly is how accessible , how understanble designed . help center should be in application UA
+proper messages -- for example anything wrong passing data for  registration should throw some message for user to understand it 
 
 
 Reliability testing and Recovery Testing
- this testing happening to check how relible the application how its done 
-testing functionality of application again again it called Reliability testing for example testing login functionality multiple times to make sure how its relibly its basically testing application continiously and some period of time it calls Reliability testing
+ this testing happening to check how reliable the application how its done 
+testing functionality of application again again it called Reliability testing for example testing login functionality multiple times to make sure how its reliably its basically testing application continuously and some period of time it calls Reliability testing
 recovery testing is to check how application behaving after crushes or any disaster for example google Chrome 
 when the laptop not responding or turning off 
-when u turning it on again chrome says retore pages thats is the recovery testing 
+when u turning it on again chrome says restore pages thats is the recovery testing 
 
 
 Talking about test case design techniques and Types of the test case designing in Software testing life cycle			
@@ -83,12 +83,12 @@ third 266 , 4th 399  If it's accepting it means it passing and it's called as Eq
 3.Boundary Value Analysis means testing the value around the given value like   if requirement says you have to test numbers between			
 20 and 25  then we write test 19 20 21 and 24 25 26 			
 4.Decision Table Techniques  ---> here we check multiple condition, combinations and rule criteria  here condition take as 			
-input and actions take as an output.  When I say condition and rules I take them as positive and negative TC bases based condition			
-and I apply them in a appropiate way within rules 			
+input and actions take as an output.  When I say condition and rules I take them as positive and negative TC bases based on condition			
+and I apply them in a appropriate way within rules 			
 5. State Transition Techniques --> this means testing some component of application with state what I mean by that let's you are trying 			
-to login the application after some time let's say after 6 attempts with wrong password u are bloked  the state of the steps . I mean all 			
-all these attepts called as state transition technique. Basically u are testing application with 6 times with correct credentials and checking			
-how application is behaving and after that 6 times until u block u are providing wrog credentials to check how state transition behaving 			
+to login the application after some time let's say after 6 attempts with wrong password u are blocked  the state of the steps . I mean all 			
+all these attempts called as state transition technique. Basically u are testing application with 6 times with correct credentials and checking			
+how application is behaving and after that 6 times until u block u are providing wrong credentials to check how state transition behaving 			
 
 
 
