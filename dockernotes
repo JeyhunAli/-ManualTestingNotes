@@ -1,3 +1,5 @@
+docker is virtual container which will host software in this container  
+
 Docker is software which will help testing team or dev team to build to manage to secure the application 
 anywhere in any platform 
 
@@ -96,7 +98,7 @@ docker rmi image id  here rm ---> remove rmi---->> is remove image
 another command 
 docker kill conatiner id  ----- > this will kill the conatiner id forcefully
 if you want to get all the information about that container u can run 
-docker inspect contaner id --- >> it will give u all the info in the form of jason
+docker inspedocct contaner id --- >> it will give u all the info in the form of jason
 
 docker image prune -a will delete image which is related specific container 
 docker image ls ----->> list of the images
@@ -127,7 +129,8 @@ explanation --
 -P selenium image
 
 
-then go to browswer localhost:4444  -->> you will see grid container started 
+then go to browswer localhost:4444  -->> you will see grid container started
+ 
 docker run -d -P --link selenium-hub:hub selenium/node-chrome-debug  ---->> one chrome container created 
 if you one more than one or multiple chrome container you can run this command several time and you can have chrome containers up-and running 
 
@@ -135,7 +138,11 @@ for firefox you can run
 docker run -d -P --link selenium-hub:hub selenium/node-firefox-debug
 
 
-
+to run your test cases on grid you should search for these in hub.docker.com
+selenium/hub
+selenium/node-firefox-debug
+selenium/node-chrome-debug
+selenium/node-chrome-debug 
 
 
 
