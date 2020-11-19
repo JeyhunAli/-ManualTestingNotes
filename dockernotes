@@ -1,5 +1,6 @@
 docker is virtual container which will host software in this container  
-
+ 
+docker is mostly created for developers by the developers
 Docker is software which will help testing team or dev team to build to manage to secure the application 
 anywhere in any platform 
 
