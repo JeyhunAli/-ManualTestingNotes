@@ -104,7 +104,7 @@ docker inspedocct contaner id --- >> it will give u all the info in the form of 
 docker image prune -a will delete image which is related specific container 
 docker image ls ----->> list of the images
 
-docker system prune -a ----->>> will delete images and containers 
+docker system prune -a ----->>> will delete images and containers only those images which is containers are not running  
 this will remove 
 -all stopped containers 
 all networks not in use ones 
@@ -134,9 +134,10 @@ then go to browswer localhost:4444  -->> you will see grid container started
  
 docker run -d -P --link selenium-hub:hub selenium/node-chrome-debug  ---->> one chrome container created 
 if you one more than one or multiple chrome container you can run this command several time and you can have chrome containers up-and running 
-
-for firefox you can run 
+                       
+for firefox you can run this below cmd to create firefox container  
 docker run -d -P --link selenium-hub:hub selenium/node-firefox-debug
+docker logs ---->> is for to check the logs 
 
 
 to run your test cases on grid you should search for these in hub.docker.com
@@ -145,11 +146,154 @@ selenium/node-firefox-debug
 selenium/node-chrome-debug
 selenium/node-chrome-debug 
 
-
-
-
-
 if you want to use docker in windows download it from  docker for windows toolbox 
+
+          
+ 
+   
+                                                                       DOCKER COMPOSE NOTES AND IMPLEMENTATION
+
+                docker composer is providing with one yml file which is taking care of starting docker starting chrome forefox browsers with node and hub 
+it like json or xml file with this a lot time saving  but infostructure is remian same all the images pulling creating container 
+
+
+
+docker compose yml file 
+
+version: "3"
+services:
+  selenium-hub:
+    image: selenium/hub:3.141.59-yttrium
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+
+  chrome:
+    image: selenium/node-chrome:3.141.59-yttrium
+    deploy:
+      replicas: 5
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+
+  firefox:
+    image: selenium/node-firefox:3.141.59-yttrium
+    deploy:
+      replicas: 5
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+
+
+
+here replica: 5 means 5 broswer will be for chrome 5 for firefox 
+
+
+create any folder in your documents then add this in your documents 
+after that go to the terminal 
+docker-compose -v   to check the version of compose
+docker compose comes along with docker when u install docker compose is also there 
+then 
+docker-compose up      --->> means setup my infostructure
+control + c   ----> will stop running docker 
+docker-compose up -d   -------- >> means while setting infrostructure run everything on the background
+docker-compose down ---- also will shut dwon the server
+docker-compose ps    --- will show how many conatainers are up and running 
+one thing when u shut down server it will remove containers as well 
+docker-compose ps -a will show non of the container after down
+but 
+docker-compose images will still show the images are there 
+docker-compose scale chrome=3    here 3 is up to you how many browser u want u can set and you can have it 
+this command for having server browsers 
+docker-compose scale firefox=3  ----->>> and this for the firefox broswer
+
+
+
+once u run this cmd it will donwload all the images on top of the images it will create container and all thiese connected to the selenium hub 
+after that open new tab make sure in your eclipse remote flag is equal to true    for example    remote = true 
+then in new tab of the terminal run this 
+mvn test 
+or
+mvn clean install 
+
+it will run test cases on selenium grid if you want to see all the logs all the actions how its performing 
+for that you can donwload vnc viewer --- find it on google here is link  ---> https://www.realvnc.com/en/connect/download/viewer/
+once its downloaded and ready to use it look like a browser just you need to  write
+localhost:3277  (number is gonna be different and as well as 4,5 maybe digits
+
+
+but lets say in one of the company u have been asked to set up docker 
+url then will be different 4444 will be there but the operating system u downliaded docker will give u one url will ne like 192.168.4444 something like that 
+
+
+
+
+                                                                                    ZALENIUM
+zalenium is open source tool provided by zalendo zalenium is another docker grid container 
+this kind a wrapper on top of selenium grid infostructure 
+to start with zalenium ........ 
+
+https://opensource.zalando.com/zalenium/
+
+1st    docker pull elgalu/selenium    ---- >>> 
+2nd    docker pull dosel/zalenium
+3rd    docker run --rm -ti --name zalenium -p 4444:4444 \
+      -v /var/run/docker.sock:/var/run/docker.sock \
+      -v /tmp/videos:/home/seluser/videos \
+      --privileged dosel/zalenium start
+
+docker stop zalenium  ----->>> will stop 
+
+these are the steps to start zalenium 
+advantage of the zalenium is providing with live view just need to go to the url side 
+here ...   localhost:4444/grid/admin/live     ---->> admin live added manually then you will be able to see whats the happening internally
+then go    http://localhost:4444/dashboard/    ----->>> it will provide u with the report and recorded video thats awesome
+like any defect error in executing u can download the vodeo and then attach it to the jira 
+its internally call vnc once is done it will disconnect the live connection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
