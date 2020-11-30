@@ -1,5 +1,12 @@
 
 https://dl.bintray.com/testng-team/testng-eclipse-release/ 
-
 this is the url to download testng to eclipse
+
+https://mkyong.com/maven/how-to-install-maven-in-windows/
+This url how to download maven to windows 
+
+https://mkyong.com/maven/install-maven-on-mac-osx/
+This url how to download maven to Mac 
+
+
 
