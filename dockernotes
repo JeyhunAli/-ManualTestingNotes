@@ -120,6 +120,8 @@ docker pull selenium/node-chrome-debug
 docker images 
 docker pull selenium/node-firefox-debug
 docker images
+docker restart container id    --- will restart the container
+docker logs container id  ----- will show u load for particular container 
 
 to create the container out of these 
 docker run -d -p 4444:4444 --name selenium-hub -P selenium/hub
@@ -128,6 +130,7 @@ explanation --
 -p port num
 -- name give any name 
 -P selenium image
+
 
 
 then go to browswer localhost:4444  -->> you will see grid container started
@@ -145,6 +148,7 @@ selenium/hub
 selenium/node-firefox-debug
 selenium/node-chrome-debug
 selenium/node-chrome-debug 
+
 
 if you want to use docker in windows download it from  docker for windows toolbox 
 
@@ -194,6 +198,19 @@ services:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 here replica: 5 means 5 broswer will be for chrome 5 for firefox 
 
 
@@ -202,7 +219,7 @@ after that go to the terminal
 docker-compose -v   to check the version of compose
 docker compose comes along with docker when u install docker compose is also there 
 then 
-docker-compose up      --->> means setup my infostructure
+docker-compose up      --->> means setup my infrastructure
 control + c   ----> will stop running docker 
 docker-compose up -d   -------- >> means while setting infrostructure run everything on the background
 docker-compose down ---- also will shut dwon the server
@@ -213,7 +230,7 @@ but
 docker-compose images will still show the images are there 
 docker-compose scale chrome=3    here 3 is up to you how many browser u want u can set and you can have it 
 this command for having server browsers 
-docker-compose scale firefox=3  ----->>> and this for the firefox broswer
+docker-compose scale Firefox=3  ----->>> and this for the Firefox browser
 
 
 
@@ -231,7 +248,15 @@ localhost:3277  (number is gonna be different and as well as 4,5 maybe digits
 
 
 but lets say in one of the company u have been asked to set up docker 
-url then will be different 4444 will be there but the operating system u downliaded docker will give u one url will ne like 192.168.4444 something like that 
+url then will be different 4444 will be there but the operating system u downloaded docker will give u one url will ne like 192.168.4444 something like that 
+3 December 2020
+Docker-compose --version
+control+c ----> will shot down 
+Docker-compose up -d   ---->>>    run on the background 
+Docker-compose up
+Docker-compose down   ---->>>> will stop container and it will remove all the container 
+
+
 
 
 
