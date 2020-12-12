@@ -1,0 +1,16 @@
+https://aerokube.com/selenoid/latest/#_getting_started.  
+
+To start with selenoid first we have to have compose.yml file  with all configuration of chrome firefox 
+Then we need browser.json file with all configuration of browsers and their versions 
+So 
+Docker-compose file will read the browser.json file 
+It will interact with it then it will setup the infrastructure 
+And its possible to see actual running process with selenoid ui
+Selenoid is not providing image installation and container creation that's the limitations but its actually intentionally by solenoid guys 
+  
+ 
+ 
+
+
+
+

@@ -1,5 +1,27 @@
 
 https://dl.bintray.com/testng-team/testng-eclipse-release/ 
-
 this is the url to download testng to eclipse
 
+https://mkyong.com/maven/how-to-install-maven-in-windows/
+This url how to download maven to windows 
+
+https://mkyong.com/maven/install-maven-on-mac-osx/
+This url how to download maven to Mac 
+
+
+https://docs.qameta.io/allure/#:~:text=Allure%20Framework%20is%20a%20flexible,from%20everyday%20execution%20of%20tests.
+Allure link 
+
+
+http://roufid.com/no-compiler-is-provided-in-this-environment/
+This link shows how to fix maven compiler problem
+
+
+https://docs.qameta.io/allure/#_installing_a_commandline
+This url u can download allure command in order to run allure command in your Mac or windows 
+But for the windows you have to first  download scoop and scoop is also available in this url 
+Just run given cmd in powershell
+
+
+https://phoenixnap.com/kb/how-to-install-git-windows
+Download git bash for windows and Mac

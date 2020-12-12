@@ -1,0 +1,165 @@
+
+What is Scrum?   
+scrum is the framework of agile methodology
+In agile scrum team members solving some complex problems design some features and deliver the product in the best possible way within the timeframe and in a creative way from 
+Different activities in scrum
+ 1. scrum team
+ 2. Daily scrum meeting
+ 3. Sprint
+ 4. Product backlog
+ 5. Sprint backlog
+ 6  Sprint planning meeting
+ 7  Sprint review meeting
+ 8  Sprint retrospective meeting
+ 9  refinement meeting
+                                            the master of scrum process
+ SM( scrum master)
+ 1. F2F communication accountability
+ 2. Solves the problems
+ 3. Ensure that team is functional and productive
+ 4. ensure that team is following the guidelines rules and practices
+ 5. Gives the feedback on the base of the some activity to the team members
+
+ SM
+---     not a  tech lead
+---     not team lead
+---      not the manager
+---      not at po/pm
+
+P0 ( product owner)
+ one. Provides the vision for the team
+ two. Talks to the different business stakeholders
+ Three. the product backlog
+ four. Sets the acceptance criteria for each user story
+ five. Deciding what and when to release
+
+  P0  → agile po:
+   agile product owner skills →  business mind set , User oriented, User-centered domain expertise. in technology
+
+
+Dave/QA Team
+ 1.  Developing features
+ 2. what's the weather in Sprint cycle
+3.  works with the PO
+ 4. usually six members 4 DEV 2 QA  depends on C2C
+5. Dev team →  back-end Developers user interface front end Developers architects QA mobile Developers automation QA
+ 6. complete the dev and testing and other Tech tasks
+ 7. Attend all the meetings and other activities
+ 8. Giving the status of the work on a daily basis 
+
+Architect  In Scrum 
+ Product backlog →  list of all the features . usually created by the product owner 
+In every Sprint Tim is deciding to pick all the features or some of the features from the product backlog 
+
+Defects are also part of the product  backlog
+In every sprint we can pick for or five user stories 
+
+spring review meeting will start right after sprig over  demo will be given in that meeting and they will discuss about last 2 week talking about goals that achieved in that two weels
+achieved goals can be <100%   >100%  =100%   
+
+
+
+
+
+
+ 
+The four ceremonies are:
+Sprint Planning
+Daily Scrum
+Sprint Review
+Sprint Retrospective
+It is important to note that these ceremonies are specific to the scrum framework, an agile process that teams use around the world to build things that work. Scrum is intentionally lightweight and simple, but it is difficult to master. It is intended to provide a framework for cross-functional teams to solve complex problems.
+Simply put: scrum is a way to implement agile.
+Conducting these meetings in isolation won’t automatically make your team agile. They have to be a part of a larger, well understood and articulated process. They should facilitate conversations within the agile team to get things done. And what kind of project manager doesn’t like to get things done?
+Sprint Planning
+What is it?
+Sprint Planning is the scrum ceremony designed to make sure the team is prepared to get the right things done every sprint.
+What’s its purpose?
+This ceremony happens at the beginning of a new sprint and is designed for the Product Owner and Development Team to meet and review the prioritized Product Backlog. Through a series of discussions and negotiations, the team should ultimately create at a sprint backlog that contains all items they are committing to complete at the end of the sprint. This is called the sprint goal. The sprint goal should be a shippable increment of work, meaning it can be demonstrated at the end of a sprint. It needs to be agreed upon by the entire team.
+The Product Owner is responsible for having the Product Backlog ready for review before Sprint Planning begins. This means adding acceptance criteria, requirements, and necessary details for the development team to accurately estimate the level of effort.The Product Owner also needs to be able to clarify any questions or assumptions that the Development Team has about the work. Only then can the development team accurately forecast the amount of work they can accomplish during the sprint.
+Who’s in attendance?
+The scrum team — product owner, development team & scrum master.
+How long does it last?
+The length of most scrum ceremonies is related to the length of the sprint. In terms of Sprint Planning, it should last 2 times the length of the sprint (in hours). For example, if your sprint is 2 weeks long, the Sprint Planning ceremony should last no longer than 4 hours. For a 1 week sprint, it should last no more than 2 hours.
+Are there any helpful tips?
+User stories can be broken up into smaller tasks & assigned during sprint planning so that everyone knows what they’re held accountable to.
+Encourage the team to sketch out tasks, bugs, and any item that requires it during this meeting. It should be an extremely collaborative ceremony.
+Once a sprint goal is set, it should not be interrupted by competing work. However, the Product Owner can cancel the sprint if the goal is no longer relevant.
+Stick to your timebox. Keep your eye on the clock, and once you’re at time, stop.
+Be sure to keep in mind any time off, vacations, holidays, or other scheduling details during the sprint to accurately reflect the amount of work that can be accomplished.
+Similarly, try to have a measure of the team’s velocity before Sprint Planning begins.
+Remember: You’re planning for a sprint, not a marathon! Try not to get sidetracked by items that haven’t been determined ready by the Product Owner.
+Anything else? Sprint Planning allows the scrum team to answer the questions, “What can be delivered in this next sprint? And how will we accomplish that work?” It helps provide predictability and creates a collaborative environment to arrive at the goal for each sprint.
+Daily Scrum
+What is it?
+The Daily Scrum is the team’s chance to get together, define a plan for the day’s work, and identify any blockers.
+What’s its purpose?
+This ceremony provides a frequent opportunity for the team to get together and communicate individual progress toward the sprint goal. It’s not a status update. Instead, it should illuminate any impediments the team is having. The Scrum Master is responsible for clearing these roadblocks for the Development Team so they can focus on delivering the work identified in Sprint Planning.
+During the daily scrum, each member of the Development Team should briefly answer the following questions:
+What did you do yesterday?
+What will you do today?
+Are there any impediments in the way?
+Each participant in this meeting should be listening to each other and remain present through the entirety of the meeting. Often times, members of the Development Team will identify opportunities to work together during the day based on commentary during the Daily Scrum.
+Who’s in attendance?
+The Scrum Master and the Development Team. The Product Owner is an optional attendee. On occasion, outside stakeholders can be invited to listen in to the daily scrum.
+How long does it last?
+This one’s short! It should last no more than 15 minutes. Easier said than done.
+Are there any helpful tips?
+The ScrumMaster is responsible for keeping pace on this quick meeting. Consider setting a timer!
+Hold the meeting at the same time each day of the week (typically in the mornings), and do what you can to make this as routine for the scrum team as possible.
+If your team is distributed, leverage video conferencing software so the team can still see each other.
+For live stand-ups, consider throwing a ball around the room to indicate who should be speaking at any given time.
+If (or truthfully when) something comes up in this meeting that warrants a longer conversation, encourage the team members to sync up as soon as the Daily Scrum wraps up to determine when they want to collaborate. It could be immediately after the meeting or later in the day. Again, let them self-organize.
+There are tools and Slack integrations, such as Geekbot, that allow standups to happen asynchronously. While those can be helpful in certain circumstances, it is encouraged that these meetings happen in person or over a video call.
+The tone should be light and fun, but with a focus on collecting and communicating information.
+Anything else?
+Alternatively named the daily standup or scrum meeting, this quick pulse check should set up the team well for the day. Don’t let it eat up too much time or it will have the opposite effect. This meeting enables to the team to be sync and build trust with each other. Let the team hold each other accountable for achieving their commitments on a daily basis.
+Sprint Review
+What is it?
+The Sprint Review is the scrum ceremony where all work completed during the sprint can be showcased the stakeholders.
+What’s its purpose?
+At the conclusion of each sprint, the Sprint Review provides a platform for the Development Team to showcase all of the work that has been completed. This allows stakeholders to see things sooner than later and inspect or adapt the product as it emerges. Sprint Reviews can be conducted in a casual “Demo Friday” nature or can be set up to be more structured. This all depends on several variables of the scrum team, such as product lifecycle and release planning.
+Most importantly, all of the work showcased during this time should be fully demonstrable and meet the definition of done that the team is operating off of. The team should feel empowered to show off the work they’ve been able to complete over the course of the sprint. It should not feel like they are on trial or defending the work they’ve done. Rather, it should focus on the business value being delivered through product development.
+Who’s in attendance?
+The scrum team — product owner, development team & scrum master — and typically a mixture of management, outside stakeholders, customers, and even developers from other projects. In terms of who needs to be there, this scrum ceremony is more fluid than the others. The Product Owner and Scrum Master should be discussing who ought to be involved prior to the Sprint Review and work to ensure they’re in attendance.
+How long does it last?
+One hour per week of the sprint. As an example, a two-hour Sprint Review should be scheduled for a two week sprint.
+Are there any helpful tips?
+The Scrum Master assumes any administrative duties, ensuring meeting rooms are booked, additional presentation aids are available (like white boards or flip charts, for example), and that the meeting is appropriately timeboxed. Consider providing refreshments as well.
+Actionable feedback received during the Sprint Review should be converted into new product backlog items for later prioritization and discussion.
+Preparing for this meeting is a good idea! Since stakeholders from outside the scrum team are often in attendance, be sure to build in any rehearsal time or other preparation necessary to set the team up for success.
+Focus the Sprint Review around user experience and business value. It should not feel like the Development Team is just proving that things work.
+The Product Owner should be asking questions to the stakeholders, gathering feedback, and also providing answers to any that arise
+Anything else?
+Alternatively named the Sprint Demo, this ceremony helps to build trust across stakeholders and the scrum team. It is the most direct way for early and frequent feedback to be collected and eventually added to the product backlog. Do everything you can to let the team shine.
+Sprint Retrospective
+What is it?
+The Sprint Retrospective is the final scrum ceremony in the sequence that allows the team to look back on the work that was just completed and identify items that could be improved.
+What’s its purpose?
+After a Sprint Review has been conducted, the scrum team needs to have the opportunity to reflect on the work that was just showcased and discuss ways in which to improve. The sprint retrospective is that meeting. It gives the scrum team a platform to discuss things that are going well, things that could go better, and some suggestions for changes. Some common questions asked are:
+What went well over the last sprint?
+What didn’t go so well?
+What could we do differently to improve?
+Ultimately, this ceremony should provide a blameless space for members of the team to provide their honest feedback and recommendations for improvements. It should drive change. All actionable feedback should be collected and assigned so that members of the scrum team understand who is responsible for what.
+Agile is all about constant improvement, and this ceremony is specifically designed to help the scrum team better.
+Who’s in attendance?
+The Scrum Master and the Development Team. The Product Owner is an optional attendee. There should be no outside stakeholders involved in the retro.
+How long does it last?
+Typically, retrospectives should last no more than 1.5 hours for a two-week sprint. If your sprints are a month, the retro should last no longer than 3 hours.
+Are there any helpful tips?
+Focus on continuous improvement and gather information that is based on facts, not just feelings.
+Keep things novel, and consider different ways to engage the team during this ceremony. There are a host of resources out there that provide examples to make these meetings more effective. One example can be found here.
+Generate meaningful insights from the conversation. If you sense there’s more to be said between the lines, encourage team members to go deeper.
+If a suggestion for improvement is brought up, ask other members of the scrum team if they all agree. If so, identify how that recommendation will be brought to life.
+Create a space where the conversation more easily flows. Consider bringing in food, colored markers, sticky notes and other things to encourage participation.
+Revisit previous suggestions to determine whether the team should keep doing them.
+Build the team’s ability to self-organize.
+Anything else?
+If we’re getting technical, the sprint retrospective is not an official scrum ceremony. However, it’s a very common component of scrum and other methodologies because it and can help to identify areas of improvement and mitigate risk for future sprints. These meetings often illuminate recommendations to be better and mitigate risk moving forward. As a Scrum Master, be sure to coach the team to provide honest feedback & be respectful throughout the course of the ceremony.
+ 
+ 
+
+
+
+
+
