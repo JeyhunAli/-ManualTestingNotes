@@ -25,3 +25,19 @@ Just run given cmd in powershell
 
 https://phoenixnap.com/kb/how-to-install-git-windows
 Download git bash for windows and Mac
+
+
+
+https://cucumber.github.io/cucumber-eclipse/update-site/
+Link for updated cucumber plugin
+
+
+
+
+
+
+
+
+
+
+

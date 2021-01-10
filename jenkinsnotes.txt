@@ -3,6 +3,22 @@ click on permalink to the latest after download unzip it
 go to exact location of the war file in your OS
 then go to the termianl
 java -jar jenkins.war  run this cmd on terminal or in cmd line  it will generate password
+If you have selenoid in your OS and its also running on port num 8080
+Then u have to run this command for Jenkins in order to run it in different port 
+  java -jar jenkins.war --httpPort=9090    9090 is optional 
+At the company level devops or SRE TEAM 
+SRE site reliability engineers
+Jenkins only works with jdk 8 and 11
+
+Once u installed u will get initiall setup is required and will provide 
+One token for u 
+Copy that token 
+Provide with jdk 8 and java_home path 
+Html publisher plugin
+Allure
+Maven integration plugin
+
+Csp plugin for google chrome to see extent report
 
 copy that pswd
 got to to url
