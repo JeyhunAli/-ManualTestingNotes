@@ -1,0 +1,27 @@
+BDD -- > behavior driven development notes
+ In this approach everybody in the same page first of all 
+Cucumber is just a framework or its a tool to apply when we have BDD 
+
+TDD   ----   BDD  -------  ATDD
+
+TDD   is always writing test cases first most of the time they are fail then making them work perfectly fine then refactoring it making it very suitable and trustworthy and solid code then production this cycle is all around in the add approach u have to keep enhancing and keep repeating this cycle entirely project to make it Solid 
+ITS MORE FOCUSED ON unit level test cases 
+
+BDD   is extension of the TDD HERE another concept is feature file scenarios and written test steps in gherkin language given when then 
+Asking right questions why when how is the key concept to be more collaborative in these both approach 
+The cycle same 
+writing test cases first most of the time they are fail then making them work perfectly fine then refactoring it making it very suitable and trustworthy and solid code then production this cycle is all around in the add approach u have to keep enhancing and keep repeating this cycle entirely project to make it Solid 
+
+ATDD    acceptance test driven development 
+This is high level approach on top of the BDD  main guys PO business analyst 
+Inside THE ATDD  business or PO deciding what approach to use either is BDD or TDD 
+
+
+
+Parameters	TDD	BDD	ATDD
+Definition	TDD is a development technique that focuses more on the implementation of a  feature	BDD is a development technique that focuses on the system’s behavior	ATDD is a technique similar to BDD focusing more on capturing the requirements
+Participants	Developer	Developers, Customer, QAs	Developers, Customers, QAs
+Language used	Written in a language similar to the one used for feature development (Eg. Java, Python, etc)	Simple English, (Gherkin) 	Simple English, Gherkin 
+Main Focus	Unit Tests	Understanding Requirements	Writing Acceptance Tests
+Tools used	JDave, Cucumber, JBehave, Spec Flow, BeanSpec, Gherkin Concordian, FitNesse	Gherkin, Dave, Cucumber, JBehave, Spec Flow, BeanSpec, Concordian	TestNG, FitNesse, EasyB, Spectacular, Concordian, Thucydides 
+
