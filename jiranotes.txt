@@ -1,7 +1,7 @@
 2 type of the jira 
 cloud and server instance 
 
-jira is project management issue tracking and  ug tracking tool for agile software team
+jira is project management issue tracking tool for agile software team
 made by Atlasssian company by Australia 
 the name jira is inherited from Japanese word GOJIRA which means Godzilla
 

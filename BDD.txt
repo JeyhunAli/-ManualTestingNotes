@@ -25,3 +25,106 @@ Language used	Written in a language similar to the one used for feature developm
 Main Focus	Unit Tests	Understanding Requirements	Writing Acceptance Tests
 Tools used	JDave, Cucumber, JBehave, Spec Flow, BeanSpec, Gherkin Concordian, FitNesse	Gherkin, Dave, Cucumber, JBehave, Spec Flow, BeanSpec, Concordian	TestNG, FitNesse, EasyB, Spectacular, Concordian, Thucydides 
 
+
+
+2) feature file creation 
+Gherkin language DSL domain specific language 
+How to achieve test driven developments in add 
+So we write feature file scenario executing that writing our code its failing then we are improving code making it trustworthy executing again 
+
+
+3) mapping between step definition and feature file the moment you some changes in your feature file immediately it will be reflected to the step definition as well as feature file 
+According to the maven build structure feature file file should be part of your src/test/resources
+Source folder 
+
+https://github.com/cucumber/cucumber-eclipse-update-site-snapshot
+This url will help you to make sure u have updated version of cucumber plugin scroll down find work with --->> url 
+Copy. That url and go to the eclipse then check it
+After implementing snippets code to the step def go back to the feature file make sure green color each and every steps are marked 
+In feature file press command or ctrl in windows and hower on steps you will see all the steps are lined up u can click and it jump on that method in step definition class 
+
+4)cucumber supports 2 kind expression 
+Cucumber expression
+Regular expression
+Two types of Reg Expressions in Cucumber:
+
+1. Regular Expression: [0-9]+, (\\d+)
+2. Cucumber Expression (introduced in 2017) 
+
+Rules:
+1. Step def file will be generating cucumber expression only by default
+2. But you can use regular expression also in step def file 
+3. You can mix both regular and cucumber expression in step definition file
+4. But you can not mix both expressions in the same step definition method
+
+
+5)Tagging concept in Cucumber 
+Tag can be applied feature and scenario level not on given when then 
+If feature has tag it will apply to all the scenarios 
+If scenario has a tag its separate from other scenarios 
+What tags mentioned in the runner class that scenario will be execute 
+We can pass two tags in the same class with or separetd 
+We can give two tags for example smoke and sanity to single scenario 
+In the runner class any 2tags with and separator if we apply and if there are no any scenario like that zero feature file will execute 
+Lets say u want to execute all the scenarios except one 
+U don't need to mention all of them in the runner class 
+Just write 
+tags = "not @your tags name"
+Along with these u can write @All in on top of the Feature and tags = "@All" in the runner class it will execute all the test cases 
+Here all the scenarios are inheriting @All
+From the command line u can also run your test cases ---->>> mvn test 
+It will execute as you apply in the runner class 
+But lets say u have given @All tags or any other for example @smoke or @sanity @regression in the runner class 
+Whenever u run your test cases from cmd you can mention here like 
+mvn test -Dcucumber.filter.tags="@smoke"  -->> this cmd belongs to cucumber version 6
+ this cmd will pick and execute only smoke test case it doesn't matter if you write sanity or @All in your runner class 
+
+In maven it will show u that u mentioned @All along with @smoke and whatever tags u run 
+mvn test -Dcucumber.options.tags="All" this cmd belongs to cucumber version 4 
+@smoke @user-story-9090 @Epic-10 we can provide in our feature file this format as well here we are given our user story number epic number along with 
+@smoke test tags 
+This tags is helping for documentation point of view and later on we can relate it with any test management tool like jira and quality center qc 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
