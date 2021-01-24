@@ -63,31 +63,82 @@ Tag can be applied feature and scenario level not on given when then
 If feature has tag it will apply to all the scenarios 
 If scenario has a tag its separate from other scenarios 
 What tags mentioned in the runner class that scenario will be execute 
-We can pass two tags in the same class with or separetd 
+We can pass two tags in the same scenario
+For example 
+
+@smoke @regression   
+In the runner class we have to write 
+tags = "@smoke and regression". Then it will pick that scenario which is written with these tags
+But lets say if we don't have this combination In the feature file and they are separately written from each other's  for example 
+@smoke 
+Scenario:
+
+@regression
+Scenario:
+
+In this case if we write in runner class 
+Tags = "@smoke and regression " it will pick zero scenarios and nothing will execute 
+ 
+  
 We can give two tags for example smoke and sanity to single scenario 
 In the runner class any 2tags with and separator if we apply and if there are no any scenario like that zero feature file will execute 
 Lets say u want to execute all the scenarios except one 
 U don't need to mention all of them in the runner class 
 Just write 
 tags = "not @your tags name"
-Along with these u can write @All in on top of the Feature and tags = "@All" in the runner class it will execute all the test cases 
-Here all the scenarios are inheriting @All
-From the command line u can also run your test cases ---->>> mvn test 
+Along with these u can write @All  on top of the Feature. For example 
+"@All"
+Feature:
+
+ in the runner class it will execute all the test cases 
+Here all the scenarios are inheriting @All. 
+From command line u can also run your test cases ---->>> mvn test 
 It will execute as you apply in the runner class 
 But lets say u have given @All tags or any other for example @smoke or @sanity @regression in the runner class 
-Whenever u run your test cases from cmd you can mention here like 
+Whenever u run your test cases from cmd you can mention here also like
+ 
 mvn test -Dcucumber.filter.tags="@smoke"  -->> this cmd belongs to cucumber version 6
  this cmd will pick and execute only smoke test case it doesn't matter if you write sanity or @All in your runner class 
+This class overriding tags in terminal
 
 In maven it will show u that u mentioned @All along with @smoke and whatever tags u run 
 mvn test -Dcucumber.options.tags="All" this cmd belongs to cucumber version 4 
-@smoke @user-story-9090 @Epic-10 we can provide in our feature file this format as well here we are given our user story number epic number along with 
+
+@smoke @QA-ready @user-story-9090 @Epic-10 we can provide in our feature file this format as well here we are given our user story number epic number along with 
 @smoke test tags 
-This tags is helping for documentation point of view and later on we can relate it with any test management tool like jira and quality center qc 
+This tags is helping for documentation point of view and later on we can relate it with any test management tool like jira and quality center QC 
 
 
 
+6)Background keyword in cucumber 
+This keyword is used to define pre condition for all the scenarios 
+Instead of repeating the same Given steps in all of the scenarios in a Feature file 
+We can move such Given steps to the background, by grouping them under a Background keyword.
+It can contain one or more Given steps, which are run before each scenario, but after any Before hooks.
 
+
+
+7)Hooks In Add Cucumber 
+It will help to do precondition and how to define post steps 
+Hooks are never part of the feature file it part of the step def configuration file 
+SetUp and TearDown just like in testNG 
+
+We can have multiple @before hook  before each method 
+
+@Before  ---->>>> will be execute before each scenario 
+method1(order = 1) 
+@Before 
+Method2 (order = 2) --- these are pre condition 
+
+
+@After  ------->>> will be execute after each scenario 
+Same thing we can do for after method too
+For example close browser, disconnect database 
+
+@BeforeStep ------->>>> before each step of the scenarios 
+@AfterStep  ------->>>> after each step of the scenarios  
+
+For detail notes and info check add framework demo in GitHub 
 
 
 
