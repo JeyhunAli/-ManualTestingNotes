@@ -1,0 +1,236 @@
+select * from emp;      sql query to get everything u've got here * is wild card to get all the data from amp table 
+
+select distinct job from emp;      it will return only unique values from database
+
+select * from emp
+
+where job = 'MANAGER';      WHERE here further filter to get specific data and data written within single quotes 
+
+select * from emp
+where job = 'SALESMAN'
+and sal = 1600
+and comm = 300;      combination of where and here and equal to the where together all this will return one condition 
+
+
+-- with and operator both side have to be true with or operator either one should be true 
+-- and operator always execute first if in the statement they both are participated 
+
+Use table-name-here  to start using that specific table in mysql  we use USE keyword
+
+SELECT * 
+FROM customers
+ -- where customer_id = 7
+order by first_name;       ----->> this statement will retrieve the data with sorting order  
+Order by is used to sort the data on the basis of given values 
+For example on the basis of alphabet or numeric from starting to ending 
+
+With select statement we can choose any column name or * 
+SELECT first_name, last_name  from customers
+SELECT last_name, first_name from customers     when we choosing any column with select statement we change the order of 
+coulmn as well for example last_name first point and the end  as per our requirements 
+
+SELECT last_name, first_name , points, points + 10 as '10 percent more' from customers 
+Here point as column name points plus 10  is arithmetic action adding 10 to existing numbers on points column 
+As another keyword to specify any column name as you want 
+And if new 
+As arithmetic we can use  -, *, % and so on modular % is reminder of the value
+
+SELECT last_name, first_name , points, points % 10 + (10 * 2) as '10 percent more' from customers
+This one of the mathematical statements 
+
+SELECT name, unit_price, unit_price * 1.1 as 'new price'
+ FROM products
+ order by name 
+This one of the mathematical statements 
+
+Customers from Virginia 
+SELECT * from customers
+where state = 'va'
+
+Customers not from Virginia 
+SELECT * from customers
+where state <> 'va'   or instead of <> we can use !=
+
+SELECT * from customers
+where birth_date > '1986-03-28'
+Customers birth date greater than 1986.  Date format is default in sql
+
+SELECT * from customers
+where birth_date > '1986-04-13'
+and points > '947'
+If we have and operator in our statements both the sides of and should be true 
+
+SELECT * from customers
+where birth_date > '1986-04-13'
+or points > '947' 
+With or operator at least one of the side has to be match 
+
+In sql  * /. Have higher order than - +
+
+
+SELECT * from customers
+where birth_date > '1990-01-01'
+or points > 100
+and state = 'VA' 
+If there and or operator together in one statement 
+The preference will be first given (and) then (or) 
+And combination will execute first
+WE USE OR OPERATOR TO COMBINE multiple CONDITION 
+
+
+SELECT * from customers
+where not (birth_date > '1990-01-01'
+or points > 100
+and state = 'VA')
+Not operator is used to negate the statements usually comes right after where clause 
+And preferably its good idea to use parentheses after not operator for condition 
+If there not operator > sign becomes <=
+Or becomes and 
+
+
+SELECT * from order_items
+where order_id = 6 
+and unit_price * quantity > 30
+Get the items for order #6 where total price is greater than 30 
+here unit_price is column we multiply it with quantity column and get result 
+
+IN operator IN SQL 
+GET ALL THE CUSTOMERS FROM VIRGINIA 
+select * from customers
+WHERE state in ('VA', 'FL', 'TN')
+
+Not in operator will give you output of the in operator 
+Get GET ALL THE CUSTOMERS outside of VIRGINIA, fl, TN
+select * from customers
+WHERE state not in ('VA', 'FL', 'TN')
+
+Return the product with quantity_in_stock equal to 49, 38, 70 
+select * from products
+where quantity_in_stock in (49, 38, 70)
+
+WHEN WE WANT TO GET RANGE OF THE VALUES WE USE BETWEEN OPERATOR FOR EXAMPLE 
+GET THE CUSTOMERS WHO HAS MORE THAN 1000 AND LESS THAN 3000 POINTS 
+We can write this statement like this     
+                                           select * from customers
+                                           where points >= 1000 and points <=3000
+But this is lengthy code 
+Here we can use between 
+                                           select * from customers
+                                           where points between 1000 and 3000
+This is more compact and easy to read and understand 
+
+RETURN CUSTOMERS BORN BETWEEN 1/1/1990 AMD 1/1/2000
+Here birth format first year , month, day  and birth dates within single quotes 
+                                           select * from customers
+                                           WHERE birth_date between '1990-01-01' and '2000-01-01'
+
+Now let me explain how to retrieve specific row is matching string pattern 
+For that we have to use 'like' operator 
+Get all the customers who last name starts with 'B'
+                                           select * from customers
+                                           WHERE last_name like 'B%'
+Here % after B means give me all the last names starts with B 
+After b all the characters acceptable 
+The percentage signs can be anywhere of the characters 
+                                           select * from customers
+                                           WHERE last_name like '%y'
+
+                                           select * from customers
+                                           WHERE last_name like '%A%'
+Another concept lets say we have requirement to get the name ending with y 
+But before there are have to be 5 characters in that case we '_' operator 
+                                           select * from customers
+                                           WHERE last_name like '_____y'
+Here I wrote 5 time _ then y 
+Depends on requirements we can have the count of the _ in our query 
+Another example starts with B ends with Y then we use this query
+4 time underscore _ 
+                                           select * from customers
+                                           WHERE last_name like 'B____y'
+% represent any character 
+_ represent single character
+Get the customers whose address contains trail or avenue 
+                                           select * from customers WHERE address 
+                                           like '%trail%' or address like '%avenue%'
+Get the customers whose phone number ends with 9 
+                                           select * from customers
+                                           WHERE phone like'%9'
+And also we can use not operator with % to get what we want 
+For example 
+Get the customers whose phone number don't ends with 9 
+                                           select * from customers
+                                           WHERE phone not like'%9'
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
