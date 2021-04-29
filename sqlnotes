@@ -1,9 +1,8 @@
-select * from emp;      sql query to get everything u've got here * is wild card to get all the data from amp table 
+select * from emp;      sql query to get everything u've got here * is wild card to get all the data from emp table 
 
 select distinct job from emp;      it will return only unique values from database
 
 select * from emp
-
 where job = 'MANAGER';      WHERE here further filter to get specific data and data written within single quotes 
 
 select * from emp
@@ -93,6 +92,7 @@ where order_id = 6
 and unit_price * quantity > 30
 Get the items for order #6 where total price is greater than 30 
 here unit_price is column we multiply it with quantity column and get result 
+--------------------------------------------------------------------------------------------
 
 IN operator IN SQL 
 GET ALL THE CUSTOMERS FROM VIRGINIA 
@@ -107,6 +107,7 @@ WHERE state not in ('VA', 'FL', 'TN')
 Return the product with quantity_in_stock equal to 49, 38, 70 
 select * from products
 where quantity_in_stock in (49, 38, 70)
+--------------------------------------------------------------------------------------------
 
 WHEN WE WANT TO GET RANGE OF THE VALUES WE USE BETWEEN OPERATOR FOR EXAMPLE 
 GET THE CUSTOMERS WHO HAS MORE THAN 1000 AND LESS THAN 3000 POINTS 
@@ -123,6 +124,7 @@ RETURN CUSTOMERS BORN BETWEEN 1/1/1990 AMD 1/1/2000
 Here birth format first year , month, day  and birth dates within single quotes 
                                            select * from customers
                                            WHERE birth_date between '1990-01-01' and '2000-01-01'
+--------------------------------------------------------------------------------------------
 
 Now let me explain how to retrieve specific row is matching string pattern 
 For that we have to use 'like' operator 
@@ -160,16 +162,712 @@ For example
 Get the customers whose phone number don't ends with 9 
                                            select * from customers
                                            WHERE phone not like'%9'
+--------------------------------------------------------------------------------------------
 
-				
+We have another way to do that specially its extremely powerful with searching strings in sql 
+REGEXP ---> ITS USED TO WITH COMPLEX PATTERNS  for example 
+                                           Select * from customers 
+                                           Where last_name REGEXP 'field'
+With this expression we don't need percentage sign 
+If We use (^ carrot) sign beginning of the pattern its indicate the starting point
+If we use ( dollar $) sign at the end its indicate ending point
+For example Select * from customers 
+            Where last_name REGEXP '^field'  ---> must Strat With field
+
+            Select * from customers 
+            Where last_name REGEXP 'field$' --->> must end with field
+With REGEXP ---> we can search multiple words in one line with  pipe separated way 
+For example 
+                                           select * from customers
+                                           where last_name REGEXP 'brush|Nase|My|MAC' 
+HERE we can have one two or more pipe this words represent part of the last name 
+And it helps us to find people with this last names on database
+
+If we put (carrot ^) sign in the begging it will return the last names starting with the words which we 
+Provided 
+For example 
+                                           select * from customers
+                                           where last_name REGEXP '^brush|Nase|My|MAC' 
+If we put (dollar $) sign at the end it will return the last names ending with the words which we 
+Provided 
+For example 
+                                           select * from customers
+                                           where last_name regexp 'brush|Nase|My|MAC$' 
+Lets say we have requirements to get customer whose last name contains letter e 
+For example                                select * from customers
+                                           where last_name regexp 'e' 
+
+Lets say we have requirements to get customers whose last name contains before letter e 
+Either g, I, m  either of these characters should come before e 
+For example for that we do                 select * from customers
+                                           where last_name regexp '[gim]e' 
+We can do it in reverse order as well for example any letter followed
+ By e 
+                                           select * from customers
+                                           where last_name regexp 'e[gim]' 
+
+This concept calls using square brackets to get the requirements back
+
+Another concept for example we have to get the range of characters before the letter e 
+We can give the range like that give me beginning of the letters from a-h   before the e
+For example                                select * from customers
+                                           where last_name regexp '[a-h]e' 
+
+
+Get the customers whose name 
+
+First names are elka or amber
+select * from customers
+where first_name regexp 'elka|ambur' 
+
+Last name end with ey or on
+select * from customers
+where last_name regexp 'ey$|on$'
+
+select * from customers
+where last_name regexp '^my|se'
+
+Last name contains b followed by r or u 
+1.
+select * from customers
+where last_name regexp 'b[ru]' 
+
+2.
+select * from customers
+where last_name regexp 'bu|br' 
+
+--------------------------------------------
+
+Now 
+How to get the values with missing values 
+As we now that null value is consider absence of any attribute in database 
+To get that missing value we use is null clause for example 
+
+select * from customers
+where phone is null       here the customer hasn't a phone number 
+
+Another opposite site using is null 
+Using is not null for example 
+
+select * from customers
+where phone is not null
+
+Exercise  get the orders are not shipped yet 
+
+--------------------------------------------
+Order by clause 
+Is used to sort the data on the basis of column name 
+By default any query we write its coming on by order 
+But with order by clause we explicitly define that we want this query executed by 
+Sorted of specific column name for example 
+
+Select * from customers 
+Order by first_name 
+Here first name column will be executed by sorted order alphabetically 
+
+We can also sort the data by multiple column for example 
+select * from customers
+order by first_name, last_name, state
+
+Desc this clause will execute state by descending order for example 
+select * from customers
+order by first_name desc
+
+In mySQL we can sort the date on the select clause by any column name but in another database management system its not allowed 
+For example  in this statement I will show u we can 
+Sort first name , last name by birth date 
+Here is 
+                                           select first_name, last_name
+                                           from customers 
+                                           order by birth_date
+
+We can also sort the data by an aliens 
+select first_name, last_name, 10 as points
+from customers 
+order by points, birth_date 
+Here 10 as points not column its just number added 
+
+-------------------------------------------------
+select *, quantity * unit_price as total_price
+from order_items
+where order_id =2
+order by quantity * unit_price desc
+
+To avoid duplicates we can use this way 
+
+select *, quantity * unit_price as total_price
+from order_items
+where order_id =2
+order by total_price desc
+--------------------------------------------------
+
+Now lets talk about limit 
+How to limit the number of records which is returned from our query
+Basically lets say we have 10 0r 100 records but we want to get only 3,4 records 
+
+select * from customers 
+limit 4                   --->> it will return only 4 records  from 1 to 4 
+
+But lets say you want get records from starting from 7 to 9  or 
+From 5 to 8  then we should follow this concept 
+From   7, 2          
+this means give me the  number 8,9
+
+from 5, 3 
+This means give me the  number 6,7,8
+
+Exercise: get the top tree loyal customers    
+select * from customers 
+order by points desc
+limit 3
+
+Limit clause should always come et the end 
+
+--------------------------------------------------------------------
+
+Joins concept in MySql
+
+A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+(INNER) JOIN: Returns records that have matching values in both tables
+LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table
+RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table
+FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table
+
+1.inner Join
+Inner Join clause in SQL is used to combine rows that have matching values in two or more tables. 
+It means both table has to have common, same column based on that we are using inner join in sql
+
+select order_id, c.customer_id as mainID, first_name, last_name, order_date, shipped_date
+from customers as c, orders as o
+where c.customer_id = o.customer_id;
+
+Here using inner joins concept without joins keyword and we have alias
+As well and if you want to print as column matched inner join column. in select clause u have to mention about by 
+Writing from what column id u want to print 
+
+
+select order_id, orders.customer_id, first_name, last_name, birth_date
+from orders 
+inner join customers 
+		on orders.customer_id = customers.customer_id
+Here Im using with inner joins keyword 
+
+Exercise:
+Write a query to join order_items table with products table
+For each order return both order id as well as its name followed by quantity and unit_price
+From the order_items table and by the way try to use alias to simplify the code
+
+Solution:
+SELECT order_id, OT.product_id, quantity, P.unit_price
+from order_items as OT
+inner join products P on OT.product_id = P.product_id
+
+--------------------------------------------------------------------
+
+Joining across databases 
+
+SO TO join FROM different database pretty simple 
+Lets say we have to database in our platform one of them name 
+sql_store, another one is sql_inventory 
+Both are the database they have their own tables and everything 
+Once we want to join them together we use join keyword 
+And as well as matching point and we have to use prefix on table NAME which is coming from different database 
+What u need to remember u have to only prefix the table that are not part of the database
+For example 
+
+select * 
+from order_items O
+join sql_inventory.products P 
+on O.product_id = P.product_id 
+
+Here sql_inventory.products P as prefix followed by alias
+If your current database is not in use u have to prefix it as well 
+
+--------------------------------------------------------------------
+
+In sql <table> can join with itself too here basically we joining two columns instead of tables
+And using alias for simplifying and differentiation 
+Its pretty much same as table joining concept just here joining columns and using aliases 
+FOR EXAMPLE:
+SELECT *
+from employees e
+join employees m
+on e.reports_to = m.employee_id;
+
+Here e, m just alias, reports_to one column, employee_id is another column 
+Here. We are just joining two columns 
+We can use inner join outer join concept 
+
+
+--------------------------------------------------------------------
+
+Lets see how to join more than two tables
+For that two times we use join keyword 
+1st we join tables which they have matching column 
+2nd we join third table to one of the previous table which has matching column and it better to use aliases to simplify 
+The query and more understanding point of view 
+Example 
+select o.order_id, o.order_date, c.first_name, c.last_name, os.name AS status
+from orders o
+join customers c
+on o.customer_id=c.customer_id
+join order_statuses os
+on o.status = os.order_status_id 
+
+The aliases on select clause always do at the end first select * then get familiar with the table then 
+Its good to have aliases and choosing columns based on table 
+
+Exercise 
+Write a querry 
+join the payments table with payment_method table as well as client table 
+Produce a report that it shows payment with more detail such as name of client and payment method name,
+Amount and address 
+
+Solution:
+use sql_invoicing;
+select p.date, 
+       p.invoice_id, 
+       p.amount, 
+       c.name AS 'customer Name', 
+       c.address, 
+       c.state, 
+       pm.payment_method_id,
+       pm.name
+from payments p
+join clients c
+on p.client_id = c.client_id
+join payment_methods pm
+ on p.payment_method = pm.payment_method_id
+
+--------------------------------------------------------------------
+Compound join condition 
+So far we use single column which is uniquely identified in the table 
+What does it means ? 
+It means we have table column in our data base and each column has data which is not repetitive 
+Its unique 
+
+But in this example I will show u lets say we have columns which is holding duplicate or more than two values 
+And to get the data from those column we have to use two three column combination together with join clause 
+To achieve compound join concept
+Usually this kind column we describe
+That they have primary key in more than one column and that calls composite primary key 
+"Composite primary key is contains more than one column" 
+Basically in these type of data the combination of two columns are representing unique items
+For example 
+select * 
+from order_items o
+join order_item_notes oi
+on o.order_id = oi.order_Id
+and oi.product_id=oi.product_id
+ 
+Here joining two table finding first matching and here order_id 
+And second matching column which
+ Is product id 
+This calls <<<<<Compound join condition >>>>>>
+
+
+--------------------------------------------------------------------
+
+Implicit JOIN syntax 
+THIS MEANS joining tables without join keyword 
+For example 
+SELECT *
+FROM order_item_notes OI, order_items O
+WHERE OI.order_Id=O.order_id
+This means implicit syntax concept its better to be aware of this concept 
+But its always good practice to use join keyword to avoid any syntax error 
+
+
+--------------------------------------------------------------------
+
+OUTER JOIN CONCEPT
+In sql two type of the join inner join and outer join if we don't write anything in front of 
+Join keyword it consider as inner join 
+If we use inner join concept we get as result only matching points from two tables
+But with outer join we get matching point and as well as on the basis of right to left table data as well 
+Outer join also divided into two part 
+There are two types of the outer joins 
+Left joins and right joins
+The LEFT JOIN keyword returns all records from the left table (table1), and the matching records from the right table (table2).
+When we using left join concept 
+We can swap the table 
+What table we write first that table will be our left table 
+
+For example 
+select c.customer_id, c.first_name, o.order_id
+from customers c
+left join orders o
+on c.customer_id = o.customer_id
+order by c.customer_id
+
+Exercise 
+-- write a program to join order_items table with products table 
+-- and simplify on select clause to get product id name and item quantity
+-- to see which items ordered how many times 
+-- and sort on the basis of product id
+
+Solution 
+select p.product_id, p.name, oi.quantity
+from order_items oi
+right join products p
+on oi.product_id = p.product_id
+order by p.product_id
+
+
+--------------------------------------------------------------------
+
+Outer joins with multiple tables 
+
+In this concept we will see how to use together outer join (left, right join)
+Together with inner join inside one query to get exact output we want 
+But as expert says avoid to use left right inner join all together its more complex to read better use left join
+With inner join 
+Here is one example 
+select c.customer_id, c.first_name, c.last_name, o.order_id, sh.name AS Shipper
+from customers c
+left outer join orders o
+on c.customer_id = o.customer_id
+left join shippers sh 
+on o.shipper_id = sh.shipper_id
+order by o.order_id
+
+Exercise:
+Write a query to get this result 
+Order date,  order id, first name, last name, shipper and status
+Hint here you will join 4 table together as per their matching column 
+
+Solution :
+select 
+o.order_id, 
+order_date, 
+c.first_name, 
+c.last_name, 
+sh.name AS shipper,
+os.name AS status 
+from customers c
+join orders o
+on c.customer_id = o.customer_id
+left join shippers sh
+on o.shipper_id = sh.shipper_id
+left join order_statuses os
+on o.status = os.order_status_id
+order by o.order_id
+
+
+--------------------------------------------------------------------
+
+SELF OUTER JOIN 
+Looks like self join just here we are using outer join concept either left or right join 
+
+Example
+SELECT 
+e.employee_id, 
+e.first_name,
+m.first_name AS Manager
+from employees e
+join employees m
+on e.reports_to = m.employee_id;
+
+Great example for that lets say I'm using self inner join concept 
+To get all the employees who reporting to manager 
+Im getting all the employees but one record is missing its manager 
+But manager is not reporting to itself that's why is missing 
+Here if I use left join concept I will get all the records as well as manager as well 
+But in manager records it will show null 
+Where the reporting is displayed because manager is not reporting to himself 
+
+
+--------------------------------------------------------------------
+
+USING CLAUSE 
+this feature is so helpful let me tell u how to use it 
+For example in join clause we have to match one table to another table 
+on c.customer_id = o.customer_id like this-->> and it lengthy when we have complex query 
+And we can use "using" clause. using clause replacing  <<<<on c.customer_id = o.customer_id>>>> this line 
+But we have to make sure that both table same name other wise it won't work 
+
+SELECT * 
+from customers c
+join orders o
+-- on c.customer_id = o.customer_id       ---->>> it means customer_id is existing in orders table as well as customers table 
+using (customer_id)
+Left join shippers 
+using(shipper_id)       ---->>> it means shipper_id is also existing in orders table 
+
+If we have specific requirements to have some column name on select clause in that case we have this kind query
+
+SELECT o.order_id, c.first_name, sh.name
+from customers c
+join orders o
+-- on c.customer_id = o.customer_id
+using (customer_id)
+left join shippers sh
+using(shipper_id)
+
+<<<<<<<PAY CLOSE ATTENTION TO HERE >>>>>>>>>>
+
+select *
+from order_items oi
+join order_item_notes oin
+-- on oi.order_id = oin.order_Id
+-- and oi.product_id = oin.product_id
+using (order_id, product_id)
+
+HERE in this query we have two tables which both of them have some columns and combination of two columns uniquely identifying one id 
+On one table  
+And combination of two columns uniquely identifying one id on another table { --  means commented out In MySql )
+
+Exercise:
+Write a query to get payments from payments table 
+That will show on what day why get paid how much and using the method of payment method 
+On select clause I want to see date, client, amount, name 
+
+Solution:
+select p.date, c.name AS client, p.amount, pm.name
+from payments p
+ left join clients  c
+using (client_id)
+ left join payment_methods pm
+on p.payment_id = pm.payment_method_id
+
+HERE IN THIS QUERY I USE "USING" KEY WORD AND AND WITHOUT THAT 
+BECAUSE IN ONE condition ONE OF THE COLUMN NAME IS DIFFERENT 
+IN ORDER TO USE "USING" KEYWORD BOTH COLUMN FROM DIFFERENT TABLE HAVE TO BE exactly SAME NAME 
+
+-----------------------------------------------------------------------------------------------------------
+
+NATURAL JOINS 
+
+THIS join as name suggests natural basically we are relying on database engine 
+To join our two table on the basis of matching column 
+Here natural join will do it by itself finding matching columns and joining them together 
+But most of the time companies not recommend using natural
+Join it can be serious problems that's why it better to use regular joins concept 
+Let me show u how to write query with natural join 
+For example 
+select c.customer_id, c.first_name, c.last_name, o.order_id
+from customers c
+Natural join orders o
+
+Because of natural join can produce unexpected results that's why its discouraged to use that 
+
+-----------------------------------------------------------------------------------------------------------
+
+CROSS JOINS
+THIS JOIN is used to combine everything from table a 
+With table b 
+That's why there's no on condition after join keyword because its combining everything all the data 
+For example:
+
+select * 
+from customers
+cross join orders
+Here we can provide some select clause values any columns as well 
+
+Real time example for cross joins 
+Lets say u have a table with all size small big large 
+And u have another table with all the colors red blue white orange 
+And u want to combine all of them together in that case its very useful 
+
+Exercise:
+Do cross join between shippers and products using implicit syntax and explicit syntax 
+implicit syntax  means without cross join keyword and explicit syntax with cross join 
+
+Solution:
+select * 
+from shippers sh
+cross join products p
+order by sh.name;
+
+select * 
+from shippers sh , products p
+order by p.name
+
+-----------------------------------------------------------------------------------------------------------
+
+UNIONS 
+So far we learned how to combine multiple columns from different table using joins
+But we can also combine multiple Raws from different table by using UNIONS statement
+
+For example:
+select 
+      order_id, 
+      order_date,
+      'Active' AS status    ------>>>> this line is just string for labeling condition is not existing in current database table I added explicitly 
+from orders 
+where order_date >= '2019-01-01'
+
+-- using UNION operator we can combine these two statement and execute it as one query
+Union
+
+select 
+      order_id, 
+      order_date,
+      'Archived' AS status         ------>>>> this line is just string for labeling condition is not existing in current database table I added explicitly 
+from orders 
+where order_date < '2019-01-01'
+
+This means using union operator we can combine multiple queries 
+In this example these two queries against same table 
+But we can also have queries against different table and we can combine result into one result set 
+One thing just remember number of columns that each query returns should be Equal otherwise you are going to get an error
+
+For example: 
+select first_name, last_name
+from customers
+union 
+select name 
+from shippers
+
+Here one select clause two condition
+Another select clause has one condition they both have two Equal to each other 
+And this query with union keyword while executing it will pick
+First statements name on the on the console as column name 
+
+Exercise:
+Write a query to produce this result 
+customer_id, first_name, point, type 
+We don't have type columns in our database so we calculated the values of this column based on point of each customer 
+If they have less than 2000 points their type bronze 
+If they have between 2000 and 3000 point their type silver 
+And if they have more than 3000 they are gold customers 
+And sort the result by first_name 
+
+Solution:
+select customer_id, first_name, points, 'bronze' AS type
+from customers
+where points <=2000 
+union
+select customer_id, first_name, points, 'silver' AS type
+from customers
+where points between 2000 and 3000
+union
+select customer_id, first_name, points, 'gold' AS type
+from customers
+where points >3000 
+order by first_name
+
+-----------------------------------------------------------------------------------------------------------
+
+Attributes of the columns 
+
+VARCHAR() in short variable characters most important concept here lets say we define our characters with varchar(50) 
+We can add the words up to 50 characters no more than that if we add less than that for example 5 length character rest of the 45 empty space will 
+Not waste but in char() is not like that 
+Its best practice to use varchar
+DATE()
+CHAR() its also accepting characters but lets say u define your char(50) and you have 5 characters length value in that case mysql will add 45 more empty spaces to fill up the space 
+INT() MOSTLY used for id of the each row of the columns pure integer numbers it holds numbers 1,2,3,4,5, and so on
+
+
+Pk stands for primary key its uniquely identifying the values in the columns 
+NN stands for nor null it determines that if this column can accept null values or not 
+AI stands for auto increments mostly used with primary key when we have auto increment on it adds id incrementally 
+
+-----------------------------------------------------------------------------------------------------------
+
+Inserting A single ROW 
+
+1st way here we are not mentioning about column name just inserting data 
+NN not null
+
+Our columns : 
+Primary key and
+Ai auto increment     NN           NN                            NN      NN     NN     NN 
+customer_id,         first_name, last_name, birth_date, phone, address, city, state, points
+
+Here birth_date and phone can be null 
+
+
+insert into customers 
+values(
+        default,               --->>>> means it takes id value from sql provided. Because we define it as AI
+       'Jeyhun',
+       'Aliyev',
+       '1988-02-01',
+       '555987777',
+       'ShoreParkway',
+       'Brooklyn',
+       'NY',
+        599
+          
+)
+
+2nd way 
+Explicitly defining table names on insert statement 
+
+insert into customers (first_name, 
+                       last_name, 
+                       birth_date, 
+                       address, 
+                       city, 
+                       state
+                       )
+values(
+       'Emiliya',
+       'Aliyeva',
+       '2019-12-25',
+       'ShoreParkway',
+       'Brooklyn',
+       'NY'
+		
+          
+)
+	
+
+insert into customers 
+values(
+        default,               --->>>> means it takes id value from sql provided. Because we define it as AI
+       'Jeyhun',
+       'Aliyev',
+        Null                   --->>>> can be null 
+       '555987777',
+       'ShoreParkway',
+       'Brooklyn',
+       'NY',
+        Default                --->>>> because point accepting integer data and default value as zero
+          
+)			
 
 
 
+Once you executing this this single row inserting statement you will see id is generating automatically 
+So it takes last value and increment it by one 
 
 
 
+-----------------------------------------------------------------------------------------------------------
+
+Inserting A multiple ROW 
+
+In this example we have one table shippers and two columns 
 
 
+Primary 
+key andAi     NN 
+shipper_id,  name   
+
+But while inserting multiple rows we not defining id because id declared as AI auto increment it generates automatically 
+
+insert into shippers(name)
+	values
+          ('Jeyhun'),
+          ('Adam'),
+          ('Nastya'),
+          ('Emiliya')
+
+Another example:  inserting four values 
+
+insert into products(name, quantity_in_stock, unit_price)
+       values ('fridge', 10, 4.7),
+	      ('basket', 20, 4.5),
+              ('umbrella', 20, 5.5),
+	      ('Table', 19, 9.5)
+
+
+-----------------------------------------------------------------------------------------------------------
+
+Inserting data into multiple TABLES 
 
 
 
