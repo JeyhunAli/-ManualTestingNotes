@@ -5,34 +5,34 @@ Docker is software which will help testing team or dev team to build to manage t
 anywhere in any platform 
 
 earlier before the docker how was that working let me explain 
-lets say some years back we had one hardware on that hard ware we were installing one opartaion system 
-like linuxOs or windows or mac and on that operation system we were installing one sofwtare its called hypervisor which is provided by AWS OR CISCO
+lets say some years back we had one hardware on that hard ware we were installing one operation system 
+like linuxOs or windows or mac and on that operation system we were installing one software its called hypervisor which is provided by AWS OR CISCO
 OR SOME OTHER COMPANIES 
 
-so on that hypervisor we had to install operating server os  for specific appliactions sofware for example 
-my sql on windows operating server, tomcat another operating server, jenkins on mac operating server, like different different vm-vertual machines 
-this is prosedure is cost more money more effort more configuration because each and every server, application needs its own configuration 
+so on that hypervisor we had to install operating server os  for specific applications software for example 
+my sql on windows operating server, tomcat another operating server, Jenkins on mac operating server, like different different vm-virtual machines 
+this is procedure is cost more money more effort more configuration because each and every server, application needs its own configuration 
 installation on vm to achieve better result 
 
-but in 2013 docker container came to the market in 2010 they strarted to work on that and they released in 2013 
+but in 2013 docker container came to the market in 2010 they started to work on that and they released in 2013 
 how is that work so 
-one hardware in any platform it can be windows mac linuxOS  --> donwloading one docker engine running on that opearting system 
+one hardware in any platform it can be windows mac linuxOS  --> downloading one docker engine running on that operating system 
 here we dont need any kind vm, or hypervisor
-hypervisor- is where virtual machine vm is running its playing as a hardware role its also calss host machine which is hosting to each and every 
+hypervisor- is where virtual machine vm is running its playing as a hardware role its also class host machine which is hosting to each and every 
 virtual machine to run 
 
-once we downloaded docker engine to our operting system 
-on top of that we can download multiple containers for each and every software appliaction 
+once we downloaded docker engine to our operating system 
+on top of that we can download multiple containers for each and every software application 
 container is software image which is holding all the information all the important files about that particular software 
 
-lets say i want to dowload mySQL or jenkins or any other sofware for that i need  libraries, binaries, port, and ip adress 
+lets say i want to download mySQL or Jenkins or any other software for that i need  libraries, binaries, port, and ip adress 
 which is related all to one software application 
 all this comes under one container and it will behave like actual software 
 and in docker container no need to spend extra time for configuration installation make sure all the important files jars are downloaded settet up 
 docker container takes care about all of them 
 
 one of the biggest advantage of the docker container its 
-lets say i have docker container and i have donwloaded multiple software on my operating system 
+lets say i have docker container and i have downloaded multiple software on my operating system 
 docker container is managing all the software so they are totally isolated from each other 
 those software applications they are not using each others resources  
 resources i mean ram of the oprating system size of the operating system memory of the operating system 
@@ -292,7 +292,14 @@ its internally call vnc once is done it will disconnect the live connection
 
 
 
-
+Saturday June 26 2021
+New notes about Selenium grid 
+Selenium grid is combination of hub and nodes hub is connected with nodes 
+When should testers use Selenium Grid?
+To run tests on multiple browsers and their versions, different devices, and operating systems
+To reduce the time that a test suite takes to complete execution
+To do cross browser and cross platform testing 
+To use docker we have to download images on top of images we are creating containers
 
 
 
