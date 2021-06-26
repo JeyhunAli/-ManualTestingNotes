@@ -43,14 +43,14 @@ so let me explain how ram memory is working on docker container
 lets say in my mac machine i have 16gb ram and i have i allocated 6gb ram for jenkins and out of 6 jenkins is using 4gb ram 2gb is pending 
 and my sql is using 4 gb out of 6gb pending 2 gb  so two pending gb plus 4 gb is wasted memory 
 
-in earlier when we were using hypervisor technology that wasted gb ram  we coudnt assing to another sofwtare application so it was wasted 
+in earlier when we were using hypervisor technology that wasted gb ram  we couldn't assing to another sofwtare application so it was wasted 
 
 but in docker container that pending gb ram is sharing by docker container among other application so we are not wasting any memory 
 
 another biggets advantages of docker container to achieve cross bros=wser and cross platform testing through only one opearting system 
 
 downloading one hub hosting service then downloading all the different platform like windows, ie, safari, chrome then execute all the test on different 
-platforms independently achieving selebium grid 
+platforms independently achieving selenium grid 
 
 docker is like based on linux command .....  to download docker go to the hub.docker.com and download it. its a little bit faster than windows in mac 
 
