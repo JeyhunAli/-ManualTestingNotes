@@ -35,19 +35,19 @@ one of the biggest advantage of the docker container its
 lets say i have docker container and i have downloaded multiple software on my operating system 
 docker container is managing all the software so they are totally isolated from each other 
 those software applications they are not using each others resources  
-resources i mean ram of the oprating system size of the operating system memory of the operating system 
-comunication between those operating system are not happening trough docker container 
-they are working independently thats why we dont need multiple operating system to execute or work on different differen operating systems 
+resources i mean ram of the operating system size of the operating system memory of the operating system 
+communication between those operating system are not happening trough docker container 
+they are working independently thats why we don't need multiple operating system to execute or work on different different operating systems 
 
 so let me explain how ram memory is working on docker container 
-lets say in my mac machine i have 16gb ram and i have i allocated 6gb ram for jenkins and out of 6 jenkins is using 4gb ram 2gb is pending 
+lets say in my mac machine i have 16gb ram and i have i allocated 6gb ram for Jenkins and out of 6 Jenkins is using 4gb ram 2gb is pending 
 and my sql is using 4 gb out of 6gb pending 2 gb  so two pending gb plus 4 gb is wasted memory 
 
-in earlier when we were using hypervisor technology that wasted gb ram  we couldn't assing to another sofwtare application so it was wasted 
+in earlier when we were using hypervisor technology that wasted gb ram  we couldn't assign to another software application so it was wasted 
 
 but in docker container that pending gb ram is sharing by docker container among other application so we are not wasting any memory 
 
-another biggets advantages of docker container to achieve cross bros=wser and cross platform testing through only one opearting system 
+another biggest advantages of docker container to achieve cross browser and cross platform testing through only one operating system 
 
 downloading one hub hosting service then downloading all the different platform like windows, ie, safari, chrome then execute all the test on different 
 platforms independently achieving selenium grid 
@@ -61,7 +61,7 @@ docker -v
 docker 
 docker run hello-world ---->> This message shows that your installation appears to be working correctly.
 docker ps ---->> shows how many containers are running 
-docker ps -a  ----->> shows list of containers
+docker ps -a  ----->> shows list of containers running and non running 
 docker rm (image id -->> 0b9d1e7634e) for removing 
 
 some of the container you can find in hub.docker.com
@@ -300,6 +300,50 @@ To run tests on multiple browsers and their versions, different devices, and ope
 To reduce the time that a test suite takes to complete execution
 To do cross browser and cross platform testing 
 To use docker we have to download images on top of images we are creating containers
+
+docker --version
+docker ps -a       minus a means all
+docker images
+
+Basically downloading 3 images hub chrome and Firefox and on top of that we creating containers
+
+
+Docker pull it will only pull the image not creating container 
+These are linux based images 
+docker pull selenium/hub
+docker pull selenium/node-chrome-debug
+docker pull selenium/node-firefox-debug
+docker run -d -p 4444:4444 --name selenium-hub-opencart-app -P selenium/hub           -> starting hub 
+docker ps -a                 ->checking now container created 
+docker run -d --link selenium-hub-opencart-app:hub -P selenium/node-chrome-debug         -> -d detach mode --link linking with the name we created earlier and connecting with the hub and providing image 
+Now starting Firefox 
+docker run -d --link selenium-hub-opencart-app:hub -P selenium/node-firefox-debug
+Just using docker manually we can run these two commands and we can create as much as container we want 
+For example 4 Firefox 4 chrome 
+
+Then download vnc viewer to visualize the actual running test cases 
+Then go to your driver factory class in eclipse setup desired capabilities class 
+With the reference name setting chrome and Firefox options capabilities 
+Then with tldriver starting our web driver url and reading url components from properties file 
+Then running our xml file 
+
+Docker rm (conteiner id) will delete container 
+Docker rmi (image id ) will delete image 
+Docker system prune -a     will delete all the images and containers at once 
+
+https://github.com/SeleniumHQ/docker-selenium/tree/selenium-3      ----> Url for docker compose file 
+
+
+Creating folder under folder one file to store docker-compose.yml file 
+Then going To terminal that directory where you store yml file 
+Ls it will show you that file is there 
+Then run this command
+docker-compose -v 
+To see version of the compose file once u have compose file it will automatically download compose 
+Then run 
+docker-compose up -d
+
+
 
 
 
