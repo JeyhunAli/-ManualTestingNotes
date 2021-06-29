@@ -343,12 +343,79 @@ To see version of the compose file once u have compose file it will automaticall
 Then run 
 docker-compose up -d
 
+To scale up browser u can use this command 
+docker-compose up --scale firefox=3 -d
+
+Note: when we writing docker-compose up   here without -d it will show all the logs and at the end it will 
+block the terminal so we can not execute next command again 
+Its better practice to use with -d 
+
+-----------------------------------------------------------------------------------------------------------
+
+First make docker-compose down and use docker-compose system prune  
+
+zalenium grid to use it go 
+https://opensource.zalando.com/zalenium/
+To see steps 
+
+1st
+  # Pull docker-selenium
+    docker pull elgalu/selenium
+    
+2nd
+   # Pull Zalenium
+    docker pull dosel/zalenium
+
+
+3rd
+     docker run --rm -ti --name zalenium -p 4444:4444 \
+      -v /var/run/docker.sock:/var/run/docker.sock \
+      -v /tmp/videos:/home/seluser/videos \
+      --privileged dosel/zalenium start \
+      --desiredContainers 4 \
+      --timeZone "America/New_York"\
+      --gridUser Jeyhun \
+      --gridPassword test5758
 
 
 
 
+If you provide username and password in zalenium 
+Don't forget pass same username and pwd on your properties file along with hub url 
+For example 
+huburl = http://Jeyhun:test5758@localhost:4444/wd/hub
 
 
+You can pass from https://opensource.zalando.com/zalenium/ web site exact instruction 
+As I have shown on top how to add some instruction 
+For example to change time zone 
+Or add more browsers 
+You can add user name and password to zalenium in order to prevent from outside access 
+
+Time zone for us.  America/New_York
+
+
+If you are windows user after 4444:4444 \
+And docker.sock \ 
+Change back slash to ^ char 
+Then run it
+
+Go to http://localhost:4444/dashboard
+
+You can replace localhost for the IP/machine name where Zalenium is running
+Check all the recorded videos and aggregated logs after your tests completed
+
+Go to  to see live your test cases 
+http://localhost:4444/grid/admin/live
+
+Live preview and dashboard concept are so awesome in zalenium grid 
+Lets say any test cases failed zalenium also while running test cases its also recording 
+So if u see any defect or bug or any blockers you can assign it to developers easily 
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Selenoid Grid notes
 
 
 
