@@ -416,6 +416,149 @@ So if u see any defect or bug or any blockers you can assign it to developers ea
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Selenoid Grid notes
+To use selenoid grid we need selenoid ui and selenoid hub images along with docker compose file 
+Selenoid ui is like in the form of application user interface
+With selenoid grid 
+We don't need to pass chrome or Firefox images to docker compose file 
+Only two images selenoid ui and selenoid hub images we have to maintain
+For browsers we need another browser.json file to download browser and interact with docker-compose file 
+https://aerokube.com/selenoid/latest/#_getting_started.  
+
+Create compose.yml,  browser.json file under one folder then access to that folder from 
+Terminal 
+
+Run.  docker-compose up -d 
+
+Then try to run firefox or chrome versions by manual because 
+Compose file it not providing you with browser versions why because there too Many browser versions 
+Out there if you want based on your requirements you can download any browser you want by using 
+docker pull selenoid/vnc:firefox_57.0    command in terminal 
+Here vnc for visualization of browser 
+So to find all the downloadable versions go -->  https://hub.docker.com/
+Find selenoid chrome or firefox go to the tags section you will find all the versions 
+
+
+
+To start with selenoid first we have to have compose.yml file  with all configuration of chrome firefox 
+Then we need browser.json file with all configuration of browsers and their versions 
+So 
+Docker-compose file will read the browser.json file 
+It will interact with it then it will setup the infrastructure 
+And its possible to see actual running process with selenoid ui
+Selenoid is not providing image installation and container creation that's the limitations but its actually intentionally by solenoid guys 
+
+To link selenoid with our local editor for example eclipse first I prefer to mention about browser version in my xml file 
+<parameter name="browserversion" value="57" />  
+Why I prefer in xml file because I ll give liberty to the specific test which browser version u want to execute 
+But if I declare browser version in my config file and read by properties class it will be so lengthy and more configuration 
+Then I have my driver factory class adding setCapability methods refer my GitHub 
+                         cap.setCapability("browserName", "chrome");
+    			cap.setCapability("browserVersion", browserVersion);
+    			cap.setCapability("enableVNC", true);
+  
+Another thing in basetest as parameter im passing browser and browser versions 
+Which it will read this parameter from xml file 
+And in config file also maintains one browser version key pair format but value is nothing just declaring browserversion = 
+And in the driver factory class also declaring String browser version since we have browser version in prop file bu prop class ref name 
+Getting browser version
+Then inside init_remote driver method im providing one holding param as String browserVersion 
+And same browser version Im passing inside initremote method 
+
+Browsers.json file 
+If you pay close attention in the documentation of browsers.json  they have not written anything about path: /wd/hub
+
+ {
+    "firefox": {
+        "default": "57.0",
+        "versions": {
+            "57.0": {
+                "image": "selenoid/vnc:firefox_57.0",
+                "port": "4444",
+                "path": "/wd/hub"
+            }
+        },
+        "versions": {
+            "83.0": {
+                "image": "selenoid/vnc:firefox_83.0",
+                "port": "4444",
+                "path": "/wd/hub"
+            }
+        }
+    },
+
+    "chrome": {
+        "default": "64.0",
+        "versions": {
+            "64.0": {
+                "image": "selenoid/vnc:chrome_64.0",
+                "port": "4444",
+                "path": "/"
+            }
+        },
+
+
+        "versions": {
+            "89.0": {
+                "image": "selenoid/vnc:chrome_89.0",
+                "port": "4444",
+                "path": "/"
+            }
+        },
+
+        "versions": {
+            "90.0": {
+                "image": "selenoid/vnc:chrome_90.0",
+                "port": "4444",
+                "path": "/"
+            }
+        }
+
+
+    }
+}
+
+
+
+
+
+Docker-compose.vml file 
+Here - "/Users/jey/Downloads/dockergrid/selenoid2/newselenoid:/etc/selenoid"   -> is just directory of newselenoid folder 
+And this is the directory of video folder  -> - "/Users/jey/Downloads/dockergrid/selenoid2/newselenoid/video:/opt/selenoid/video"
+Just copy below code and change directory to your own computer directory and use it
+
+
+version: '3'
+services:
+  selenoid:
+   network_mode: bridge
+   image: aerokube/selenoid
+   volumes:
+     - "/Users/jey/Downloads/dockergrid/selenoid2/newselenoid:/etc/selenoid"
+     - "/var/run/docker.sock:/var/run/docker.sock"
+     - "/Users/jey/Downloads/dockergrid/selenoid2/newselenoid/video:/opt/selenoid/video"
+   environment:
+     - OVERRIDE_VIDEO_OUTPUT_DIR=/opt/selenium/video
+     - TZ=Europe/Amsterdam
+   command: -listen :4444 -conf /etc/selenoid/browsers.json -video-output-dir /opt/selenoid/video/ -video-recorder-image selenoid/video-recorder:latest-release -timeout 3m -limit 10
+
+   ports:
+     - "4444:4444"
+
+  selenoid-ui:
+    image: "aerokube/selenoid-ui"
+    network_mode: bridge
+    links:
+      - selenoid
+    ports:
+      - "8080:8080"
+    command: ["--selenoid-uri", "http://selenoid:4444"]   
+
+
+
+
+
+
+
 
 
 
