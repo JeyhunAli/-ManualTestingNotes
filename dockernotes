@@ -17,7 +17,7 @@ installation on vm to achieve better result
 but in 2013 docker container came to the market in 2010 they started to work on that and they released in 2013 
 how is that work so 
 one hardware in any platform it can be windows mac linuxOS  --> downloading one docker engine running on that operating system 
-here we dont need any kind vm, or hypervisor
+here we don't need any kind vm, or hypervisor
 hypervisor- is where virtual machine vm is running its playing as a hardware role its also class host machine which is hosting to each and every 
 virtual machine to run 
 
@@ -429,8 +429,8 @@ Terminal
 
 Run.  docker-compose up -d 
 
-Then try to run firefox or chrome versions by manual because 
-Compose file it not providing you with browser versions why because there too Many browser versions 
+Then try to run Firefox or chrome versions by manual because 
+Compose file its not providing you with browser versions why because there too Many browser versions 
 Out there if you want based on your requirements you can download any browser you want by using 
 docker pull selenoid/vnc:firefox_57.0    command in terminal 
 Here vnc for visualization of browser 

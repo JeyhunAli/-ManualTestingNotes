@@ -1,0 +1,13 @@
+AWS notes 
+So far we were running our test cases in docker through sElenoid ui 
+Now Time to move infrastructure to the AWS 
+We need linux machine inside AWS and EC2 service
+Before that create account in AWS then add your credit card then start enjoying
+The show
+Amazon Web Services is a BRANCH of Amazon providing on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis. Wikipedia
+CEO: Andy Jassy (Apr 2016–)
+Headquarters: Seattle, WA
+Founder: Amazon.com
+Founded: 2006
+DC data center
+AZ availability zone
