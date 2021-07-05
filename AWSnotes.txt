@@ -25,10 +25,14 @@ Because i want to get some machine thats why compute service then ec2
 Then instances 
 Then launch instances 
 Landing on 
-AMAZON MACHINE IMAGE AMI
-THERE ARE different type of the machines 
+AMAZON MACHINE IMAGE AMI 
+Under AMI A lot of machines available 
+THERE ARE different type of the machines but we are gonna use community AMI
 Then 
 Community AMIs
+ Here we need machines with docker-compose 
+So that later on no need to download
+Docker and compose file 
 Then u will see a lot of machines 
 Paid 
 And free versions 
@@ -38,11 +42,70 @@ Aws market place
 In community ami 
 Search 
 For docker-compose
-And select ami-004f356f
+And select 
+buildkite-stack-2017-01-14T02-53-50Z-us-east-2 - ami-007d5865
+Buildkite CloudFormation Stack base image (Amazon Linux, buildkite-agent, docker, docker-compose, docker-gc, jq)
+Root device type: ebs Virtualization type: hvm ENA Enabled: Yes
+
 First one usually 
+
 And then based on machine specifications u can choose ram cpi 
 Type 
 At least 2 cpu and 4 gb ram 
 To achieve parallel execution 
+With the 1 cpu and less gb ram u cannot achieve parallel executing 
 Then click configure instance details 
+
+
+
+After this is another concept is configuration of cloud platform 
+
+Number of instances 1     we choose one because here one machine is enough 
+Network                   if there no by default VPC service then we have to click on create one 
+Subnet                    is reflected to availability zone just choose no preference if its applicable 
+Then don't change anything just click on add next storage 
+Then choose the storage 8 gb then click if u want u can add tag for automation purposes 
+Later on to find east if there are multiple of them 
+Next page is more important for security purposes 
+Here type has to be SSH 
+SOURCE  u can choose custom anywhere or my ip in order to prevent access 
+Then adding another rule 
+Here custom tcp port range we are providing where our selenium test cases will be run 
+Port range based on requirements any port number for example 4444 
+Once is done review and launch 
+Here it will give two warnings because I configured as open to the world 
+Then warning to pay because its not free 
+Then click on launch it will give you warning to create new pair 
+This because of login from local machine to the claud machine 
+Then click on download key pair 
+Its gonna give u pem file or cer file 
+Then launch instances 
+And it says your instances are now launching 
+Then click on view instances 
+Then click on instance id then u will see after some time couple second u will se your instances are running 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
