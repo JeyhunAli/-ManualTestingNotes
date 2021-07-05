@@ -211,3 +211,50 @@ Remove and delete commands
 Token ca437ce7f8c24b716b1e660013bd4331223b8ecf725537ffd92f60d5cccb6cb7
 
 
+
+
+
+
+
+
+
+1. git init
+2. git remote add origin https://github.com/naveenanimation20/March2021POMSeries.git
+3. add .gitignore file
+4. git status
+5. git add .
+6. git status
+7. git commit -m "first framework commit"
+8. git push origin master
+
+
+//2. A new member:
+1. get the repo url
+2. clone the repo in your local (drive)
+git clone <repo url>
+3. import the project in your eclipse
+4. start using it -- explore it, debug it, run it
+5. Made some changes in the code, or new file, update the files
+6. git status
+7. git add <files>
+8. git commit -m "reason"
+9. Raise a PR
+10. git push origin <branch>
+
+
+//3. Local Branching Process
+
+
+
+
+//4. PR Process
+
+
+
+
+//5. PULL the code
+
+
+
+
+

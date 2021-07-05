@@ -1,0 +1,48 @@
+AWS notes 
+So far we were running our test cases in docker through Selenoid ui 
+Now Time to move infrastructure to the AWS 
+We need linux machine inside AWS and EC2 service
+Before that create account in AWS then add your credit card then start enjoying
+The show
+Amazon Web Services is a BRANCH of Amazon providing on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis. Wikipedia
+CEO: Andy Jassy (Apr 2016–)
+Headquarters: Seattle, WA
+Founder: Amazon.com
+Founded: 2006
+
+DC data center
+AZ availability zone
+
+Entire data backing up in AWS 
+GCP
+GOOGLE CLOUD PLATFORM 
+MC AZURE 
+AWS MORE POPULAR 
+Go to AWS console then signing create account 
+Root user and then next 
+Then EC2 service 
+Because i want to get some machine thats why compute service then ec2 
+Then instances 
+Then launch instances 
+Landing on 
+AMAZON MACHINE IMAGE AMI
+THERE ARE different type of the machines 
+Then 
+Community AMIs
+Then u will see a lot of machines 
+Paid 
+And free versions 
+We will go with free version
+Same page u can find 
+Aws market place 
+In community ami 
+Search 
+For docker-compose
+And select ami-004f356f
+First one usually 
+And then based on machine specifications u can choose ram cpi 
+Type 
+At least 2 cpu and 4 gb ram 
+To achieve parallel execution 
+Then click configure instance details 
+

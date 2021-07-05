@@ -838,13 +838,13 @@ So it takes last value and increment it by one
 
 -----------------------------------------------------------------------------------------------------------
 
-Inserting A multiple ROW 
+Inserting multiple ROW 
 
 In this example we have one table shippers and two columns 
-
+Ai - Auto increment 
 
 Primary 
-key andAi     NN 
+key and Ai     NN 
 shipper_id,  name   
 
 But while inserting multiple rows we not defining id because id declared as AI auto increment it generates automatically 
@@ -868,6 +868,12 @@ insert into products(name, quantity_in_stock, unit_price)
 -----------------------------------------------------------------------------------------------------------
 
 Inserting data into multiple TABLES 
+
+-----------------------------------------------------------------------------------------------------------
+ 
+Primary key --->> uniquely identifying table cannot be null cannot be duplicate
+ 
+
 
 
 
