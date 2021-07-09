@@ -83,6 +83,26 @@ Then launch instances
 And it says your instances are now launching 
 Then click on view instances 
 Then click on instance id then u will see after some time couple second u will se your instances are running 
+Then u will see two type ip address public and private 
+Then going to directory of pen or cer file to setUp docker-compose file with selenoid and browser version as well 
+In Mac u have to provide permission with help of 
+Cmod 400 your pem or cer file name 
+Then in order to interact with cloud machine we are running this command 
+ssh -I pem/cer file name ec2-user@ipAdress   
+
+Then to check if docker and docker-compose available in cloud machine 
+Run this 
+docker -v
+docker-compose -v
+Java -version 
+
+In AWS yum is the linux command to run any further line 
+Just like brew in Mac and scoop in windows 
+First need to update the yum command for that need to use 
+
+
+
+
 
 
 

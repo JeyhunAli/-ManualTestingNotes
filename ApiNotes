@@ -1,0 +1,18 @@
+API -application programming interface 
+http - hypertext transfer protocol and s means secure 
+So more secure connection most api should be using s 
+
+Query parameters - are additional data we can submit with our request 
+For some api they are mandatory but some is optional 
+Query param must be same as written in documents 
+
+Path variables - when we want to get additional more information with specific request then we use it 
+As name applies variables it changes all the time and path variables or path parameters most of the time applies at the end of the request url
+Path var is for more specific info 
+When u have path var and its value in request bar 
+In the url portion postman will take value and on the background variable will run 
+
+Post request.  With the post request we to supply body 
+With the post http request basically we are sending the data 
+Note: when we are in same domain and want to send same http request in different request tab but with different query or Path param simple just to avoid manual creation we can click 3 dots and duplicate the request and then change the name accordingly 
+401 "error": "Missing Authorization header." This mostly comes when we aren't providing header in post request 
