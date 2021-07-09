@@ -1,0 +1,3 @@
+# -ManualTestingNotes
+THIS CONCEPT IS HELPING TO HAVE READY NOTES ABOUT ALL THE necessary concepts LIKE 
+GitHub, AWS, SELENOID, DOCKER 
