@@ -1,3 +1,43 @@
+Sql basically is contains two things inside table raws and columns 
+Column would define a single attribute 
+And raws define multiple values 
+
+Primary key is basically an attribute which is uniquely defines raws 
+In the database and it cannot be null why primary key so handy because 
+Lets say we see data some name and major of the name is same 
+Name same and major is same 
+So differentiate them from each other we would have to take look their id
+Number and id number is primary key so its very handy 
+Primary key can be anything number string as long as uniquely identifying 
+Primary key is also calls as surrogate key like unique key
+When we say surrogate key its something there's no mapping keyword
+In real life 
+But when we say natural key as primary key 
+For example SSN uniquely identifying us citizen 
+This real world mapping concept in sql that's why it call as natural key
+Foreign key is basically an attribute that we can store on database table 
+So it can link us to another database table 
+Notice that the "PersonID" column in the "Orders" 
+table points to the "PersonID" column in the "Persons" table.
+The "PersonID" column in the "Persons" table is the PRIMARY KEY in the "Persons" table.
+The "PersonID" column in the "Orders" table is a FOREIGN KEY in the "Orders" table.
+The FOREIGN KEY constraint prevents invalid data from being inserted into the foreign key column,
+because it has to be one of the values contained in the parent table.
+Basically foreign key stores a primary key of a raw in another database table 
+A foreign key is essentially just a way that we can define relationships between two tables
+A foreign is just a primary key of another table which is helping us to find the relationship between tables
+And it can be helpful even to find relationships lets say we have employees table between employees who is manager who is supervisor 
+And who is employee 
+Another concept of knowing of primary key is composite key 
+Lets say we have table and we define in that table two primary key columns which is refer to another table 
+This concept complex primary keys are known as composite key 
+
+
+
+
+
+
+
 select * from emp;      sql query to get everything u've got here * is wild card to get all the data from emp table 
 
 select distinct job from emp;      it will return only unique values from database
