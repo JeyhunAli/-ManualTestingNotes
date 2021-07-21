@@ -15,6 +15,7 @@ In real life
 But when we say natural key as primary key 
 For example SSN uniquely identifying us citizen 
 This real world mapping concept in sql that's why it call as natural key
+
 Foreign key is basically an attribute that we can store on database table 
 So it can link us to another database table 
 Notice that the "PersonID" column in the "Orders" 
@@ -24,17 +25,120 @@ The "PersonID" column in the "Orders" table is a FOREIGN KEY in the "Orders" tab
 The FOREIGN KEY constraint prevents invalid data from being inserted into the foreign key column,
 because it has to be one of the values contained in the parent table.
 Basically foreign key stores a primary key of a raw in another database table 
-A foreign key is essentially just a way that we can define relationships between two tables
-A foreign is just a primary key of another table which is helping us to find the relationship between tables
-And it can be helpful even to find relationships lets say we have employees table between employees who is manager who is supervisor 
+A foreign key is essentially just a way that we can define relationships between 
+two tables
+A foreign is just a primary key of another table which is helping us to find the
+ relationship between tables
+And it can be helpful even to find relationships lets say we have employees table 
+between employees who is manager who is supervisor 
 And who is employee 
 Another concept of knowing of primary key is composite key 
-Lets say we have table and we define in that table two primary key columns which is refer to another table 
+Lets say we have table and we define in that table two primary key columns which 
+is refer to another table 
 This concept complex primary keys are known as composite key 
 
 
+CREATE TABLE Student (
+Student_id INT NOT NULL
+Name VARCHAR (20) NOT NULL
+Lastname VARCHAR(20) 
+Major VARCHAR(20) UNIQUE 
+PRIMARY KEY (student_id)
+
+);
+
+INSERT INTO student VALUES 
+(1, "Ali", "Aliyev", "It");
+INSERT INTO student VALUES 
+(2, "Huseyn", "Ali", "It");
+
+If there are no values of any column to insert while defining we have an option not 
+to mention that column name 
+For example 
+
+INSERT INTO student (student_id, name, major)
+VALUES 
+(1, "Ali", "It");
+Here we don't mention about last name column and we don't add any value 
+
+NOT NULL and UNIQUE 
+keywords are pretty handy and it helps to insert duplicate and no values into table 
+Including 
+PRIMARY KEY FOREIGN KEY 
+these are basically constraints 
+
+DROP TABLE tableName 
+Will delete the table 
+SQL statement drops the existing table
+
+SQL TRUNCATE TABLE
+The TRUNCATE TABLE statement is used to delete the data inside a table, but not the table itself.
+
+DEFAULT keyword while creating table 
+Is lets say someone didn't provide us with any data we pass as default for example undecided 
+For example 
+
+CREATE TABLE  appleProducts (
+Product_id INT,
+product_name VARCHAR(50),
+Product_price INT DEFAULT 'undecided'
+PRIMARY KEY (Product_id)
 
 
+What it will do basically if we left that place plank it will choose default value as 
+Undecided 
+
+Another constraint with primary key is 
+When we define the the specific column as primary key we can put auto_increment
+Keyword 
+It will automatically increase the id values for us for example 
+CREATE TABLE  appleProducts (
+Product_id INT AUTO_INCREMENT,
+product_name VARCHAR(50),
+Product_price INT DEFAULT 'undecided'
+PRIMARY KEY (Product_id)
+
+INSERT INTO appleProducts(product_name, Product_price) VALUES ('iphone12', '600')
+INSERT INTO appleProducts(product_name, Product_price) VALUES ('iphone12 pro max', '900')
+
+NULL is basically just value that represent no value 
+NOT NULL means that column value cannot be null 
+
+Update and Delete 
+
+In order to update any data inside column we use UPDATE keyword for example 
+UPDATE student 
+SET major = 'Comp science'
+Where major = 'Computer Science'
+This statement will update from 'Computer Science' to 'Comp science' 
+Not column name but where the major is equal to 'Computer Science'
+
+Another way to update 
+
+UPDATE student 
+SET major = 'Comp science'
+Where student_id = 4;
+
+
+Multiple column update 
+UPDATE student 
+SET major = 'Comp science', name = 'Tom'
+Where student_id = 1;
+
+Here two columns are updated 
+
+Now how to delete 
+DELETE FROM student 
+This statement will delete all the raws Fram student table
+
+DELETE FROM student 
+Where student_id = 1
+
+This statement will delete that specific raw from table
+
+DELETE FROM student 
+Where name = Tom, and major = 'undecided'
+This statement will delete those raws which name is tom and major undecided 
 
 
 
