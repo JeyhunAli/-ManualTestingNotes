@@ -196,7 +196,7 @@ Select * from students where major IN ('biology', 'chemistry') AND student_id>=2
 IN keyword basically gives us what is inside of the pharentesis 
  
 ---------------------------------------------------------------------------------------------------------------------
-Starting to create actual DB with primary key foreign key all the data types
+Starting to create actual DB tables with primary key foreign key all the data types
 
 
 CREATE TABLE employee (
@@ -212,6 +212,228 @@ CREATE TABLE employee (
 
 Here in this table super_id and branch_id are foreign key which is pointing to another table's primary key 
 But here that primary key is foreign key not primary key every table allows only one primary key and multiple foreign key
+Date also another data type 
+
+
+CREATE TABLE branch (
+  branch_id INT PRIMARY KEY,
+  branch_name VARCHAR(40),
+  mgr_id INT,
+  mgr_start_date DATE,
+  FOREIGN KEY(mgr_id) REFERENCES employee(emp_id) ON DELETE SET NULL
+);
+
+
+Here in this table     FOREIGN KEY(mgr_id) REFERENCES employee(emp_id) 
+If you want to define any column as foreign key we write FOREIGN KEY (here column name) what is the reference 
+We write here table and its primary key   REFERENCES employee(emp_id) 
+ ON DELETE SET NULL   always we define together with foreign key concept
+Or we can define  like. ON DELETE CASCADE
+
+
+Now time to modify employee table we have to set super_id and branch_id as foreign key
+
+ALTER table employee
+ADD FOREIGN KEY(branch_id)
+REFERENCES branch(branch_id)
+ON DELETE SET NULL;
+
+ALTER table employee
+ADD FOREIGN KEY(super_id)
+REFERENCES employee(super_id)
+ON DELETE SET NULL;
+
+In order to add foreign key to make relations between tables first we have to create table then using those key and make 
+Foreign key concept
+
+
+CREATE TABLE client (
+client_id int PRIMARY KEY,
+client_name VARCHAR(40),
+branch_id INT
+FOREIGN KEY(branch_id) REFERENCES branch(branch_id) ON DELETE SET NULL
+);
+
+Here on this table pay attention I'm creating one column branch_id INT and then I'm making that column as foreign 
+Key referencing from another table 
+
+
+CREATE TABLE works_with(
+emp_id INT,
+client_id INT,
+total_sales INT,
+PRIMARY KEY (emp_id, client_id),
+FOREIGN KEY(emp_id) REFERENCES employee(emp_id) ON DELETE CASCADE,
+FOREIGN KEY (client_id) REFERRENCES client(client_id) ON DELETE CASCADE
+);
+
+CREATE TABLE branch_supplier(
+branch_id INT,
+Supplier_Name VARCHAR(40),
+supply_type VARCHAR(40),
+PRIMARY KEY (branch_id, Supplier_Name),
+FOREIGN KEY (branch_id) REFERENCES branch(branch_id) ON DELETE CASCADE
+)
+
+
+--------------------------------------------------------------------------------
+
+-- Corporate
+INSERT INTO employee VALUES(100, 'David', 'Wallace', '1967-11-17', 'M', 250000, NULL, NULL);
+
+INSERT INTO branch VALUES(1, 'Corporate', 100, '2006-02-09');
+
+UPDATE employee
+SET branch_id = 1
+WHERE emp_id = 100;
+
+INSERT INTO employee VALUES(101, 'Jan', 'Levinson', '1961-05-11', 'F', 110000, 100, 1);
+
+-- Scranton
+INSERT INTO employee VALUES(102, 'Michael', 'Scott', '1964-03-15', 'M', 75000, 100, NULL);
+
+INSERT INTO branch VALUES(2, 'Scranton', 102, '1992-04-06');
+
+UPDATE employee
+SET branch_id = 2
+WHERE emp_id = 102;
+
+INSERT INTO employee VALUES(103, 'Angela', 'Martin', '1971-06-25', 'F', 63000, 102, 2);
+INSERT INTO employee VALUES(104, 'Kelly', 'Kapoor', '1980-02-05', 'F', 55000, 102, 2);
+INSERT INTO employee VALUES(105, 'Stanley', 'Hudson', '1958-02-19', 'M', 69000, 102, 2);
+
+-- Stamford
+INSERT INTO employee VALUES(106, 'Josh', 'Porter', '1969-09-05', 'M', 78000, 100, NULL);
+
+INSERT INTO branch VALUES(3, 'Stamford', 106, '1998-02-13');
+
+UPDATE employee
+SET branch_id = 3
+WHERE emp_id = 106;
+
+INSERT INTO employee VALUES(107, 'Andy', 'Bernard', '1973-07-22', 'M', 65000, 106, 3);
+INSERT INTO employee VALUES(108, 'Jim', 'Halpert', '1978-10-01', 'M', 71000, 106, 3);
+
+
+-- BRANCH SUPPLIER
+INSERT INTO branch_supplier VALUES(2, 'Hammer Mill', 'Paper');
+INSERT INTO branch_supplier VALUES(2, 'Uni-ball', 'Writing Utensils');
+INSERT INTO branch_supplier VALUES(3, 'Patriot Paper', 'Paper');
+INSERT INTO branch_supplier VALUES(2, 'J.T. Forms & Labels', 'Custom Forms');
+INSERT INTO branch_supplier VALUES(3, 'Uni-ball', 'Writing Utensils');
+INSERT INTO branch_supplier VALUES(3, 'Hammer Mill', 'Paper');
+INSERT INTO branch_supplier VALUES(3, 'Stamford Lables', 'Custom Forms');
+
+-- CLIENT
+INSERT INTO client VALUES(400, 'Dunmore Highschool', 2);
+INSERT INTO client VALUES(401, 'Lackawana Country', 2);
+INSERT INTO client VALUES(402, 'FedEx', 3);
+INSERT INTO client VALUES(403, 'John Daly Law, LLC', 3);
+INSERT INTO client VALUES(404, 'Scranton Whitepages', 2);
+INSERT INTO client VALUES(405, 'Times Newspaper', 3);
+INSERT INTO client VALUES(406, 'FedEx', 2);
+
+-- WORKS_WITH
+INSERT INTO works_with VALUES(105, 400, 55000);
+INSERT INTO works_with VALUES(102, 401, 267000);
+INSERT INTO works_with VALUES(108, 402, 22500);
+INSERT INTO works_with VALUES(107, 403, 5000);
+INSERT INTO works_with VALUES(108, 403, 12000);
+INSERT INTO works_with VALUES(105, 404, 33000);
+INSERT INTO works_with VALUES(107, 405, 26000);
+INSERT INTO works_with VALUES(102, 406, 15000);
+INSERT INTO works_with VALUES(105, 406, 130000);
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+WILDCARTS IN SQL
+Wildcards is basically is pattern defining a specific of piece of data 
+Its kind a grabs a data which is matches to the data
+
+
+Symbol	Description	                                        Example
+%	Represents zero or more characters	              bl% finds bl, black, blue, and blob
+_	Represents a single character	                       h_t finds hot, hat, and hit
+[]	Represents any single character within the brackets      h[oa]t finds hot and hat, but not hit
+^	Represents any character not in the brackets	      h[^oa]t finds hit, but not hot and hat
+-	Represents a range of characters	                       c[a-b]t finds cat and cbt
+
+
+LIKE Operator	                 Description
+WHERE CustomerName LIKE 'a%'	Finds any values that starts with "a"
+WHERE CustomerName LIKE '%a'	Finds any values that ends with "a"
+WHERE CustomerName LIKE '%or%'	Finds any values that have "or" in any position
+WHERE CustomerName LIKE '_r%'	Finds any values that have "r" in the second position
+WHERE CustomerName LIKE 'a__%'	Finds any values that starts with "a" and are at least 3 characters in length
+WHERE ContactName LIKE 'a%o'	Finds any values that starts with "a" and ends with "o"
+
+
+
+-- % = any # characters, _ = one character
+
+-- Find any client's who are an LLC
+SELECT *
+FROM client
+WHERE client_name LIKE '%LLC';
+
+-- Find any branch suppliers who are in the label business
+SELECT *
+FROM branch_supplier
+WHERE supplier_name LIKE '% Label%';
+
+-- Find any employee born on the 10th day of the month
+SELECT *
+FROM employee
+WHERE birth_day LIKE '_____10%';
+
+-- Find any clients who are schools
+SELECT *
+FROM client
+WHERE client_name LIKE '%Highschool%';
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+UNIONS 
+
+IS BASICALLY SPECIAL SQL OPERATOR WHICH WE CAN COMBINE MULTIPLE SELECT STATEMENTS INTO ONE 
+WHEN using union operator need to follow some rules for example if in one select statement 2 column 
+It has to be 2 column in another select statements as well and also data type has to be same to 
+If one string another has to be string too 
+Or one is integer another one also has to be integer 
+
+For example 
+SELECT first_name, last_name from employees
+UNION
+SELECT branch_name, branch_location from branch;
+
+
+Another examples
+-- find a list of all clients and branch suppliers names 
+
+SELECT client_name, client.branch_id 
+FROM client 
+UNION
+SELECT supplier_name, branch_supplier.branch id
+FROM branch_supplier
+
+-- find a list of all money spent or earned by the company 
+
+
+---------------------------------------------------------------------------------------------------------------------
+JOINS
+<<<<<<<>>>>>>>>>>
+
+A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+
+CROSS JOIN IS ALSO CALLS Cartesian product
+CROSS JOIN WILL retrieve two table values 
+
+SELECT * FROM student 
+CROSS JOIN teacher 
+
+This statement will give us all the values from two tables
 
 
 
@@ -219,8 +441,34 @@ But here that primary key is foreign key not primary key every table allows only
 
 
 
+---------------------------------------------------------------------------------------------------------------------
 
+WHERE vs HAVING 
+Both clause is used to filter data
 
+Where will filter at raw level individual raw 
+Having will filter the data at group level where we use aggregate function 
+Having cannot be used without group by clause in most cases 
+For example 
+
+Both where and having in one statement 
+
+SELECT count(id), country 
+FROM customer
+WHERE country <> 'USA'
+GROUP BY country 
+HAVING COUNT (id) >= 9;
+
+HAVING 
+SELECT COUNT(salary), dept_id
+FROM employees
+GROUP BY dept_id
+HAVING COUNT(salary) >5000;
+
+WHERE 
+SELECT * 
+FROM employees
+Where salary >5000; 
 
 
 
