@@ -1,6 +1,7 @@
 API -application programming interface 
 http - hypertext transfer protocol and s means secure 
 So more secure connection most api should be using s 
+Every API testing is happening based on API documentation 
 
 Query parameters - are additional data we can submit with our request 
 For some api they are mandatory but some is optional 
