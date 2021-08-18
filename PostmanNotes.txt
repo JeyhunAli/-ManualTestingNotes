@@ -1,0 +1,3 @@
+Graphical interface of the Postman 
+
+If you want to pass any dynamic response value from post request to another request

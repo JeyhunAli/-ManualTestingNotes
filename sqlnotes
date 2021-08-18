@@ -1,3 +1,488 @@
+Sql basically is contains two things inside table raws and columns 
+Column would define a single attribute 
+And raws define multiple values 
+
+Primary key is basically an attribute which is uniquely defines raws 
+In the database and it cannot be null why primary key so handy because 
+Lets say we see data some name and major of the name is same 
+Name same and major is same 
+So differentiate them from each other we would have to take look their id
+Number and id number is primary key so its very handy 
+Primary key can be anything number string as long as uniquely identifying 
+Primary key is also calls as surrogate key like unique key
+When we say surrogate key its something there's no mapping keyword
+In real life 
+But when we say natural key as primary key 
+For example SSN uniquely identifying us citizen 
+This real world mapping concept in sql that's why it call as natural key
+
+Foreign key is basically an attribute that we can store on database table 
+So it can link us to another database table 
+Notice that the "PersonID" column in the "Orders" 
+table points to the "PersonID" column in the "Persons" table.
+The "PersonID" column in the "Persons" table is the PRIMARY KEY in the "Persons" table.
+The "PersonID" column in the "Orders" table is a FOREIGN KEY in the "Orders" table.
+The FOREIGN KEY constraint prevents invalid data from being inserted into the foreign key column,
+because it has to be one of the values contained in the parent table.
+Basically foreign key stores a primary key of a raw in another database table 
+A foreign key is essentially just a way that we can define relationships between 
+two tables
+A foreign is just a primary key of another table which is helping us to find the
+ relationship between tables
+And it can be helpful even to find relationships lets say we have employees table 
+between employees who is manager who is supervisor 
+And who is employee 
+Another concept of knowing of primary key is composite key 
+Lets say we have table and we define in that table one primary key and one or more foreign key columns which 
+is refer to another table 
+This concept complex primary keys are known as composite key 
+
+
+CREATE TABLE Student (
+Student_id INT NOT NULL
+Name VARCHAR (20) NOT NULL
+Lastname VARCHAR(20) 
+Major VARCHAR(20) UNIQUE 
+PRIMARY KEY (student_id)
+
+);
+
+INSERT INTO student VALUES 
+(1, "Ali", "Aliyev", "It");
+INSERT INTO student VALUES 
+(2, "Huseyn", "Ali", "It");
+
+If there are no values of any column to insert while defining we have an option not 
+to mention that column name 
+For example 
+
+INSERT INTO student (student_id, name, major)
+VALUES 
+(1, "Ali", "It");
+Here we don't mention about last name column and we don't add any value 
+
+NOT NULL and UNIQUE 
+keywords are pretty handy and it helps to insert duplicate and no values into table 
+Including 
+PRIMARY KEY FOREIGN KEY 
+these are basically constraints 
+
+DROP TABLE tableName 
+Will delete the table 
+SQL statement drops the existing table
+
+SQL TRUNCATE TABLE
+The TRUNCATE TABLE statement is used to delete the data inside a table, but not the table itself.
+
+DEFAULT keyword while creating table 
+Is lets say someone didn't provide us with any data we pass as default for example undecided 
+For example 
+
+CREATE TABLE  appleProducts (
+Product_id INT,
+product_name VARCHAR(50),
+Product_price INT DEFAULT 'undecided'
+PRIMARY KEY (Product_id)
+
+
+What it will do basically if we left that place plank it will choose default value as 
+Undecided 
+
+Another constraint with primary key is 
+When we define the the specific column as primary key we can put auto_increment
+Keyword 
+It will automatically increase the id values for us for example 
+CREATE TABLE  appleProducts (
+Product_id INT AUTO_INCREMENT,
+product_name VARCHAR(50),
+Product_price INT DEFAULT 'undecided'
+PRIMARY KEY (Product_id)
+
+INSERT INTO appleProducts(product_name, Product_price) VALUES ('iphone12', '600')
+INSERT INTO appleProducts(product_name, Product_price) VALUES ('iphone12 pro max', '900')
+
+NULL is basically just value that represent no value 
+NOT NULL means that column value cannot be null 
+
+Update and Delete 
+
+In order to update any data inside column we use UPDATE keyword for example 
+UPDATE student 
+SET major = 'Comp science'
+Where major = 'Computer Science'
+This statement will update from 'Computer Science' to 'Comp science' 
+Not column name but where the major is equal to 'Computer Science'
+
+Another way to update 
+
+UPDATE student 
+SET major = 'Comp science'
+Where student_id = 4;
+
+
+Multiple column update 
+UPDATE student 
+SET major = 'Comp science', name = 'Tom'
+Where student_id = 1;
+
+Here two columns are updated 
+
+Now how to delete 
+DELETE FROM student 
+This statement will delete all the raws Fram student table
+
+DELETE FROM student 
+Where student_id = 1
+
+This statement will delete that specific raw from table
+
+DELETE FROM student 
+Where name = Tom, and major = 'undecided'
+This statement will delete those raws which name is tom and major undecided 
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+    PRIMARY KEY                                                                             FOREIGN KEY
+
+It uniquely identifies a record in the relational database table.	            It refers to the field in a table which is the primary key of another table.
+Only one primary key is allowed in a table.                                     Whereas more than one foreign key are allowed in a table.
+It is a combination of UNIQUE and Not Null constraints.                         It can contain duplicate values and a table in a relational database.
+It does not allow NULL values.	                                              It can also contain NULL values.
+---------------------------------------------------------------------------------------------------------------------
+
+
+BASIC QUERIES 
+
+SELECT IS ONE OF THE MOST important keyword IN SQL TO retrieve the data from DB
+
+Select * from student   --- will retrieve all the data 
+Select name from student  --- will retrieve only names 
+Select student.name, student.major from student --- will retrieve only name and major 
+Select student.name, student.major from student order by --- will retrieve only name and major and it 
+will print on the basis of alphabetical order because order by keyword by default 
+Select student.name, student.major from student order by DESC will retrieve only name and major and it 
+will print on the basis of descending ORDER 
+
+WE CAN also specify the column name to get in ascending(ASC) or descending(DESC) order 
+
+LIMIT
+
+Specific count of limit also possible to get for example
+
+Select * from students
+Limit 2
+ 
+This statement will retrieve only two raws from DB
+
+We can also set them as DESC ORDER for example 
+
+Select * from students
+Order by student_id DESC 
+Limit 2
+
+This statement will retrieve only two raws from DB on the basis of descending order of student id
+
+WHERE is simply for filtering data 
+
+For example 
+
+Select * from students where student_id = 2;
+
+IN
+
+Select * from students where major IN ('biology', 'chemistry') AND student_id>=2;
+IN keyword basically gives us what is inside of the pharentesis 
+ 
+---------------------------------------------------------------------------------------------------------------------
+Starting to create actual DB tables with primary key foreign key all the data types
+
+
+CREATE TABLE employee (
+  emp_id INT PRIMARY KEY,
+  first_name VARCHAR(40),
+  last_name VARCHAR(40),
+  birth_day DATE,
+  sex VARCHAR(1),
+  salary INT,
+  super_id INT,
+  branch_id INT
+);
+
+Here in this table super_id and branch_id are foreign key which is pointing to another table's primary key 
+But here that primary key is foreign key not primary key every table allows only one primary key and multiple foreign key
+Date also another data type 
+
+
+CREATE TABLE branch (
+  branch_id INT PRIMARY KEY,
+  branch_name VARCHAR(40),
+  mgr_id INT,
+  mgr_start_date DATE,
+  FOREIGN KEY(mgr_id) REFERENCES employee(emp_id) ON DELETE SET NULL
+);
+
+
+Here in this table     FOREIGN KEY(mgr_id) REFERENCES employee(emp_id) 
+If you want to define any column as foreign key we write FOREIGN KEY (here column name) what is the reference 
+We write here table and its primary key   REFERENCES employee(emp_id) 
+ ON DELETE SET NULL   always we define together with foreign key concept
+Or we can define  like. ON DELETE CASCADE
+
+
+Now time to modify employee table we have to set super_id and branch_id as foreign key
+
+ALTER table employee
+ADD FOREIGN KEY(branch_id)
+REFERENCES branch(branch_id)
+ON DELETE SET NULL;
+
+ALTER table employee
+ADD FOREIGN KEY(super_id)
+REFERENCES employee(super_id)
+ON DELETE SET NULL;
+
+In order to add foreign key to make relations between tables first we have to create table then using those key and make 
+Foreign key concept
+
+
+CREATE TABLE client (
+client_id int PRIMARY KEY,
+client_name VARCHAR(40),
+branch_id INT
+FOREIGN KEY(branch_id) REFERENCES branch(branch_id) ON DELETE SET NULL
+);
+
+Here on this table pay attention I'm creating one column branch_id INT and then I'm making that column as foreign 
+Key referencing from another table 
+
+
+CREATE TABLE works_with(
+emp_id INT,
+client_id INT,
+total_sales INT,
+PRIMARY KEY (emp_id, client_id),
+FOREIGN KEY(emp_id) REFERENCES employee(emp_id) ON DELETE CASCADE,
+FOREIGN KEY (client_id) REFERRENCES client(client_id) ON DELETE CASCADE
+);
+
+CREATE TABLE branch_supplier(
+branch_id INT,
+Supplier_Name VARCHAR(40),
+supply_type VARCHAR(40),
+PRIMARY KEY (branch_id, Supplier_Name),
+FOREIGN KEY (branch_id) REFERENCES branch(branch_id) ON DELETE CASCADE
+)
+
+
+--------------------------------------------------------------------------------
+
+-- Corporate
+INSERT INTO employee VALUES(100, 'David', 'Wallace', '1967-11-17', 'M', 250000, NULL, NULL);
+
+INSERT INTO branch VALUES(1, 'Corporate', 100, '2006-02-09');
+
+UPDATE employee
+SET branch_id = 1
+WHERE emp_id = 100;
+
+INSERT INTO employee VALUES(101, 'Jan', 'Levinson', '1961-05-11', 'F', 110000, 100, 1);
+
+-- Scranton
+INSERT INTO employee VALUES(102, 'Michael', 'Scott', '1964-03-15', 'M', 75000, 100, NULL);
+
+INSERT INTO branch VALUES(2, 'Scranton', 102, '1992-04-06');
+
+UPDATE employee
+SET branch_id = 2
+WHERE emp_id = 102;
+
+INSERT INTO employee VALUES(103, 'Angela', 'Martin', '1971-06-25', 'F', 63000, 102, 2);
+INSERT INTO employee VALUES(104, 'Kelly', 'Kapoor', '1980-02-05', 'F', 55000, 102, 2);
+INSERT INTO employee VALUES(105, 'Stanley', 'Hudson', '1958-02-19', 'M', 69000, 102, 2);
+
+-- Stamford
+INSERT INTO employee VALUES(106, 'Josh', 'Porter', '1969-09-05', 'M', 78000, 100, NULL);
+
+INSERT INTO branch VALUES(3, 'Stamford', 106, '1998-02-13');
+
+UPDATE employee
+SET branch_id = 3
+WHERE emp_id = 106;
+
+INSERT INTO employee VALUES(107, 'Andy', 'Bernard', '1973-07-22', 'M', 65000, 106, 3);
+INSERT INTO employee VALUES(108, 'Jim', 'Halpert', '1978-10-01', 'M', 71000, 106, 3);
+
+
+-- BRANCH SUPPLIER
+INSERT INTO branch_supplier VALUES(2, 'Hammer Mill', 'Paper');
+INSERT INTO branch_supplier VALUES(2, 'Uni-ball', 'Writing Utensils');
+INSERT INTO branch_supplier VALUES(3, 'Patriot Paper', 'Paper');
+INSERT INTO branch_supplier VALUES(2, 'J.T. Forms & Labels', 'Custom Forms');
+INSERT INTO branch_supplier VALUES(3, 'Uni-ball', 'Writing Utensils');
+INSERT INTO branch_supplier VALUES(3, 'Hammer Mill', 'Paper');
+INSERT INTO branch_supplier VALUES(3, 'Stamford Lables', 'Custom Forms');
+
+-- CLIENT
+INSERT INTO client VALUES(400, 'Dunmore Highschool', 2);
+INSERT INTO client VALUES(401, 'Lackawana Country', 2);
+INSERT INTO client VALUES(402, 'FedEx', 3);
+INSERT INTO client VALUES(403, 'John Daly Law, LLC', 3);
+INSERT INTO client VALUES(404, 'Scranton Whitepages', 2);
+INSERT INTO client VALUES(405, 'Times Newspaper', 3);
+INSERT INTO client VALUES(406, 'FedEx', 2);
+
+-- WORKS_WITH
+INSERT INTO works_with VALUES(105, 400, 55000);
+INSERT INTO works_with VALUES(102, 401, 267000);
+INSERT INTO works_with VALUES(108, 402, 22500);
+INSERT INTO works_with VALUES(107, 403, 5000);
+INSERT INTO works_with VALUES(108, 403, 12000);
+INSERT INTO works_with VALUES(105, 404, 33000);
+INSERT INTO works_with VALUES(107, 405, 26000);
+INSERT INTO works_with VALUES(102, 406, 15000);
+INSERT INTO works_with VALUES(105, 406, 130000);
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+WILDCARTS IN SQL
+Wildcards is basically is pattern defining a specific of piece of data 
+Its kind a grabs a data which is matches to the data
+
+
+Symbol	Description	                                        Example
+%	Represents zero or more characters	              bl% finds bl, black, blue, and blob
+_	Represents a single character	                       h_t finds hot, hat, and hit
+[]	Represents any single character within the brackets      h[oa]t finds hot and hat, but not hit
+^	Represents any character not in the brackets	      h[^oa]t finds hit, but not hot and hat
+-	Represents a range of characters	                       c[a-b]t finds cat and cbt
+
+
+LIKE Operator	                 Description
+WHERE CustomerName LIKE 'a%'	Finds any values that starts with "a"
+WHERE CustomerName LIKE '%a'	Finds any values that ends with "a"
+WHERE CustomerName LIKE '%or%'	Finds any values that have "or" in any position
+WHERE CustomerName LIKE '_r%'	Finds any values that have "r" in the second position
+WHERE CustomerName LIKE 'a__%'	Finds any values that starts with "a" and are at least 3 characters in length
+WHERE ContactName LIKE 'a%o'	Finds any values that starts with "a" and ends with "o"
+
+
+
+-- % = any # characters, _ = one character
+
+-- Find any client's who are an LLC
+SELECT *
+FROM client
+WHERE client_name LIKE '%LLC';
+
+-- Find any branch suppliers who are in the label business
+SELECT *
+FROM branch_supplier
+WHERE supplier_name LIKE '% Label%';
+
+-- Find any employee born on the 10th day of the month
+SELECT *
+FROM employee
+WHERE birth_day LIKE '_____10%';
+
+-- Find any clients who are schools
+SELECT *
+FROM client
+WHERE client_name LIKE '%Highschool%';
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+UNIONS 
+
+IS BASICALLY SPECIAL SQL OPERATOR WHICH WE CAN COMBINE MULTIPLE SELECT STATEMENTS INTO ONE 
+WHEN using union operator need to follow some rules for example if in one select statement 2 column 
+It has to be 2 column in another select statements as well and also data type has to be same to 
+If one string another has to be string too 
+Or one is integer another one also has to be integer 
+
+For example 
+SELECT first_name, last_name from employees
+UNION
+SELECT branch_name, branch_location from branch;
+
+
+Another examples
+-- find a list of all clients and branch suppliers names 
+
+SELECT client_name, client.branch_id 
+FROM client 
+UNION
+SELECT supplier_name, branch_supplier.branch id
+FROM branch_supplier
+
+-- find a list of all money spent or earned by the company 
+
+
+---------------------------------------------------------------------------------------------------------------------
+JOINS
+<<<<<<<>>>>>>>>>>
+
+A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+
+CROSS JOIN IS ALSO CALLS Cartesian product
+CROSS JOIN WILL retrieve two table values 
+
+SELECT * FROM student 
+CROSS JOIN teacher 
+
+This statement will give us all the values from two tables
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+WHERE vs HAVING 
+Both clause is used to filter data
+
+Where will filter at raw level individual raw 
+Having will filter the data at group level where we use aggregate function 
+Having cannot be used without group by clause in most cases 
+For example 
+
+Both where and having in one statement 
+
+SELECT count(id), country 
+FROM customer
+WHERE country <> 'USA'
+GROUP BY country 
+HAVING COUNT (id) >= 9;
+
+HAVING 
+SELECT COUNT(salary), dept_id
+FROM employees
+GROUP BY dept_id
+HAVING COUNT(salary) >5000;
+
+WHERE 
+SELECT * 
+FROM employees
+Where salary >5000; 
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
 select * from emp;      sql query to get everything u've got here * is wild card to get all the data from emp table 
 
 select distinct job from emp;      it will return only unique values from database
