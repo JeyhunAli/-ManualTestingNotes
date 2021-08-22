@@ -4,3 +4,4 @@
 
 THIS CONCEPT IS HELPING TO HAVE READY NOTES ABOUT ALL THE necessary concepts LIKE 
 GitHub, AWS, SELENOID, DOCKER 
+all the respective notes written by me not copy paste
