@@ -184,8 +184,21 @@ It can contain one or more Given steps, which are run before each scenario, but 
 
 7)Hooks In Add Cucumber 
 It will help to do precondition and how to define post steps 
-Hooks are never part of the feature file it part of the step def configuration file 
+Hooks are never part of the feature file it can be part of the step def or 
+Can be written separate configuration class 
+This concept helps a lot how define pre condition and pre steps 
 SetUp and TearDown just like in testNG 
+
+Its preferred to have separate package with class for hooks 
+So in that class we can define any scenario with the @tag inside parentheses 
+How to  execute very simple 
+In our runner class 
+In glue section we are defining our hook package name
+Hooks with the tagging annotations concept are amazing 
+What tags mentioned in hook class those scenarios will work with hook concept 
+
+ 
+
 
 We can have multiple @before hook  before each method 
 
@@ -201,6 +214,9 @@ For example close browser, disconnect database
 
 @BeforeStep ------->>>> before each step of the scenarios 
 @AfterStep  ------->>>> after each step of the scenarios  
+
+We can have multiple @Before @after Hooks 
+
 
 For detail notes and info check add framework demo in GitHub 
 
