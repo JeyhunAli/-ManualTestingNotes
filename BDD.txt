@@ -19,11 +19,71 @@ Inside THE ATDD  business or PO deciding what approach to use either is BDD or T
 
 
 Parameters	TDD	BDD	ATDD
-Definition	TDD is a development technique that focuses more on the implementation of a  feature	BDD is a development technique that focuses on the system’s behavior	ATDD is a technique similar to BDD focusing more on capturing the requirements
+Definition	
+TDD is a development technique that focuses more on the implementation of a  feature	
+BDD is a development technique that focuses on the system’s behavior	
+ATDD is a technique similar to BDD focusing more on capturing the requirements
 Participants	Developer	Developers, Customer, QAs	Developers, Customers, QAs
 Language used	Written in a language similar to the one used for feature development (Eg. Java, Python, etc)	Simple English, (Gherkin) 	Simple English, Gherkin 
 Main Focus	Unit Tests	Understanding Requirements	Writing Acceptance Tests
 Tools used	JDave, Cucumber, JBehave, Spec Flow, BeanSpec, Gherkin Concordian, FitNesse	Gherkin, Dave, Cucumber, JBehave, Spec Flow, BeanSpec, Concordian	TestNG, FitNesse, EasyB, Spectacular, Concordian, Thucydides 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+1 feature file creation in one feature file we can have multiple scenarios and scenario outlines extension for feature file is  .feature 
+Given when and then these are feature file keywords 
+
+2 step definition class it. Can be any P language step definition class will have certain methods and that methods can have so separate utilities class and they can call 
+Those methods for example excel utils or java methods utils 
+
+3 test runner class we will have inside runner class Cucumber options junit runner feature file path step definition class path report 
+Either pretty format 
+For example 
+
+import org.junit.runner.RunWith;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+		
+			features = {"src/test/resources/Feature/Amazon_Search.feature"},
+			glue = {"stepdefinition", "myHooks"},
+			plugin = {"pretty"}
+		
+		)
+
+
+public class AmazonSearchTest {
+
+
+
+Runner class first interaction with feature file based on the tags we provided 
+https://cucumber.github.io/cucumber-eclipse/update-site/ 
+Downloading plugin from this site to eclipse
+Adding some dependencies into pom.xml file first properties for example java version cucumber version 
+Then dependencies cucumber java cucumber Junit 
+Then plugins 
+Compiler  plugins surefire plugins 
+When executing feature file right click run configuration then choose respective one then execute it 
+
+For step definition different package then all the relative classes 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -33,15 +93,19 @@ How to achieve test driven developments in add
 So we write feature file scenario executing that writing our code its failing then we are improving code making it trustworthy executing again 
 
 
-3) mapping between step definition and feature file the moment you some changes in your feature file immediately it will be reflected to the step definition as well as feature file 
+3) mapping between step definition and feature file the moment you do some changes in your feature file immediately it will be reflected to the step definition as well as feature file 
 According to the maven build structure feature file file should be part of your src/test/resources
 Source folder 
 
+https://cucumber.github.io/cucumber-eclipse/update-site/
+This url for eclipse plugin download 
 https://github.com/cucumber/cucumber-eclipse-update-site-snapshot
+https://marketplace.eclipse.org/content/cucumber-eclipse-plugin
+https://github.com/cucumber/cucumber-java-skeleton/blob/main/pom.xml
 This url will help you to make sure u have updated version of cucumber plugin scroll down find work with --->> url 
 Copy. That url and go to the eclipse then check it
 After implementing snippets code to the step def go back to the feature file make sure green color each and every steps are marked 
-In feature file press command or ctrl in windows and hower on steps you will see all the steps are lined up u can click and it jump on that method in step definition class 
+In feature file press command or ctrl in windows and hover on steps you will see all the steps are lined up u can click and it jump on that method in step definition class 
 
 4)cucumber supports 2 kind expression 
 Cucumber expression
@@ -120,8 +184,21 @@ It can contain one or more Given steps, which are run before each scenario, but 
 
 7)Hooks In Add Cucumber 
 It will help to do precondition and how to define post steps 
-Hooks are never part of the feature file it part of the step def configuration file 
+Hooks are never part of the feature file it can be part of the step def or 
+Can be written separate configuration class 
+This concept helps a lot how define pre condition and pre steps 
 SetUp and TearDown just like in testNG 
+
+Its preferred to have separate package with class for hooks 
+So in that class we can define any scenario with the @tag inside parentheses 
+How to  execute very simple 
+In our runner class 
+In glue section we are defining our hook package name
+Hooks with the tagging annotations concept are amazing 
+What tags mentioned in hook class those scenarios will work with hook concept 
+
+ 
+
 
 We can have multiple @before hook  before each method 
 
@@ -137,6 +214,9 @@ For example close browser, disconnect database
 
 @BeforeStep ------->>>> before each step of the scenarios 
 @AfterStep  ------->>>> after each step of the scenarios  
+
+We can have multiple @Before @after Hooks 
+
 
 For detail notes and info check add framework demo in GitHub 
 
