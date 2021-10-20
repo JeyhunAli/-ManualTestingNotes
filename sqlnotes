@@ -6,7 +6,7 @@ Primary key is basically an attribute which is uniquely defines raws
 In the database and it cannot be null why primary key so handy because 
 Lets say we see data some name and major of the name is same 
 Name same and major is same 
-So differentiate them from each other we would have to take look their id
+So differentiate them from each other we would have to take a look their id
 Number and id number is primary key so its very handy 
 Primary key can be anything number string as long as uniquely identifying 
 Primary key is also calls as surrogate key like unique key
@@ -1357,19 +1357,70 @@ Inserting data into multiple TABLES
 -----------------------------------------------------------------------------------------------------------
  
 Primary key --->> uniquely identifying table cannot be null cannot be duplicate
+Foreign key is used to link to table together 
+
+What is sql constraints 
+Sql constraints are the rules that we are applying on the table creation 
+Not null,
+Primary key 
+Foreign key
+Unique
+Defaults 
+check
  
 
 
 
+Sql theoretical interview questions and answer
+-----------------------------------------------------------------------------------------------------------
+
+what is the difference between WHERE AND HAVING ?
+where is used for filtering rows and it works on rows data
+For example select * from employees where score >= 90
+But having works with aggregate data. Aggregate data is aggregate functions are used to perform calculations on multiple rows
+of a single column it will return a single value it is used to summarize data it is used for grouping data min, max, count, avg, sum 
+Example : select max(salary)from employees having employee_id >=80
+If there aggregate functions we can not use where clause
+
+
+difference between Union and union all?
+Union means that will remove duplicate records and Union all means it will return all the values and it will not remove duplicate values
+Example: select * from customers Union Select * from suppliers       this will return only unique data not duplicate 
+Select * from customers union all select * from suppliers this will return all the data including duplicates 
+When we use union pay attention same number of data type, same number of column and same order 
+
+
+difference between in and exists?
+In compares one value to several values example select * from employees where city In (NewYork, Boston, Brooklyn)
+But exists tell you whether output true or false 
+
+
+Differences between order by and group by
+Order by is used to sort the data on the basis of asc or desc example select * from customers order by customer_id desc
+Group by is used with aggregate functions  example select active count(*) from students group by active 
+Group by comes after Where clause in select statements, having is used after group by function 
+
+
+Differences between join and subqueries
+Both are used to combine data from different table into one result set
+But when we use subqueries selection is happening from first table, as we know that subqueries is contain to side of statements and it selection only from first side 
+But in joins is different it can select from either side of statement 
 
 
 
+Delete
+Delete command is a DML command, it removes rows from a table based on the condition specified in the where clause, being a DML statement we can rollback changes made by delete command.
+
+Truncate
+Truncate is a DDL command, it removes all the rows from the table and also frees the space held. It takes a lock on the table while delete command takes a lock on rows of the table.
+
+Drop
+Drop is a DDL command, it removes the complete data along with the table structure(unlike truncate command that removes only the rows).
 
 
-
-
-
-
+Differences between Primary Key And Foreign Key 
+Primary key uniquely identify the table cannot be null and only one primary key per table 
+But foreign key can be null and more than one foreign key Is allowed in a table 
 
 
 

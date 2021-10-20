@@ -1,4 +1,12 @@
 
+
+1. Download git SCM   https://git-scm.com/downloads
+First time always cloning process 
+Get the url then create folder directory inn your local machine 
+Then go to that directory in terminal type 
+Git clone url 
+Then import to your eclipse or intelije 
+
  Git is version control system 
 Git and GitHub is not same 
 Git------>>> is control system used to track changes in computer files it’s a tool to manage your code 
@@ -193,6 +201,11 @@ And then push your code
 
 
 
+differences between fetch and pull is fetch is start with fetch to local repo then merge to working copy 
+but pull directly pull it to the working copy but same time it fetch to the local repo as well 
+
+
+
 
 
 
@@ -253,6 +266,75 @@ git clone <repo url>
 
 
 //5. PULL the code
+
+
+-------------------------------------------------------------------------------------------------
+
+ When you clone a repository, it is added as a remote of yours, under the name origin. What you need to do now (as you're not using the old source anymore) is change origin's URL:
+
+$ git remote set-url origin http://github.com/YOU/YOUR_REPO
+If the original repository would update often and you want to get those updates from time to time, then instead of editing origin it would be best to add a new remote:
+
+$ git remote add personal http://github.com/YOU/YOUR_REPO
+Or maybe even call the old one upstream:
+
+$ git remote rename origin upstream
+$ git remote add origin http://github.com/YOU/YOUR_REPO
+Then, whenever you want to get changes from upstream, you can do:
+
+$ git fetch upstream
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

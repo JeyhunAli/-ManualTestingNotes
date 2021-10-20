@@ -57,8 +57,9 @@ In every sprint we can pick for or five user stories
 spring review meeting will start right after sprig over  demo will be given in that meeting and they will discuss about last 2 week talking about goals that achieved in that two weels
 achieved goals can be <100%   >100%  =100%   
 
+----------------------------------------------------------------------------------------------------------------------------------------------
 
-
+velocity is a metric that show us how successfully we complete our user stories
 
 
 
@@ -68,24 +69,35 @@ Sprint Planning
 Daily Scrum
 Sprint Review
 Sprint Retrospective
-It is important to note that these ceremonies are specific to the scrum framework, an agile process that teams use around the world to build things that work. Scrum is intentionally lightweight and simple, but it is difficult to master. It is intended to provide a framework for cross-functional teams to solve complex problems.
+It is important to note that these ceremonies are specific to the scrum framework, an agile process that teams use around the world to build things that work.
+Scrum is intentionally lightweight and simple, but it is difficult to master. It is intended to provide a framework for cross-functional teams to solve complex problems.
 Simply put: scrum is a way to implement agile.
-Conducting these meetings in isolation won’t automatically make your team agile. They have to be a part of a larger, well understood and articulated process. They should facilitate conversations within the agile team to get things done. And what kind of project manager doesn’t like to get things done?
+Conducting these meetings in isolation won’t automatically make your team agile. They have to be a part of a larger, well understood and articulated process. 
+They should facilitate conversations within the agile team to get things done. And what kind of project manager doesn’t like to get things done?
+
 Sprint Planning
 What is it?
 Sprint Planning is the scrum ceremony designed to make sure the team is prepared to get the right things done every sprint.
 What’s its purpose?
-This ceremony happens at the beginning of a new sprint and is designed for the Product Owner and Development Team to meet and review the prioritized Product Backlog. Through a series of discussions and negotiations, the team should ultimately create at a sprint backlog that contains all items they are committing to complete at the end of the sprint. This is called the sprint goal. The sprint goal should be a shippable increment of work, meaning it can be demonstrated at the end of a sprint. It needs to be agreed upon by the entire team.
-The Product Owner is responsible for having the Product Backlog ready for review before Sprint Planning begins. This means adding acceptance criteria, requirements, and necessary details for the development team to accurately estimate the level of effort.The Product Owner also needs to be able to clarify any questions or assumptions that the Development Team has about the work. Only then can the development team accurately forecast the amount of work they can accomplish during the sprint.
+This ceremony happens at the beginning of a new sprint and is designed for the Product Owner and Development Team to meet 
+and review the prioritized Product Backlog. Through a series of discussions and negotiations, the team should ultimately 
+create at a sprint backlog that contains all items they are committing to complete at the end of the sprint. This is called 
+the sprint goal. The sprint goal should be a shippable increment of work, meaning it can be demonstrated at the end of a sprint. 
+It needs to be agreed upon by the entire team.
+The Product Owner is responsible for having the Product Backlog ready for review before Sprint Planning begins. This means adding 
+acceptance criteria, requirements, and necessary details for the development team to accurately estimate the level of effort.
+The Product Owner also needs to be able to clarify any questions or assumptions that the Development Team has about the work. 
+Only then can the development team accurately forecast the amount of work they can accomplish during the sprint.
 Who’s in attendance?
 The scrum team — product owner, development team & scrum master.
 How long does it last?
-The length of most scrum ceremonies is related to the length of the sprint. In terms of Sprint Planning, it should last 2 times the length of the sprint (in hours). For example, if your sprint is 2 weeks long, the Sprint Planning ceremony should last no longer than 4 hours. For a 1 week sprint, it should last no more than 2 hours.
+The length of most scrum ceremonies is related to the length of the sprint. In terms of Sprint Planning, it should last 2 times 
+the length of the sprint (in hours). For example, if your sprint is 2 weeks long, the Sprint Planning ceremony should last no longer than 4 hours. For a 1 week sprint, it should last no more than 2 hours.
 Are there any helpful tips?
 User stories can be broken up into smaller tasks & assigned during sprint planning so that everyone knows what they’re held accountable to.
 Encourage the team to sketch out tasks, bugs, and any item that requires it during this meeting. It should be an extremely collaborative ceremony.
 Once a sprint goal is set, it should not be interrupted by competing work. However, the Product Owner can cancel the sprint if the goal is no longer relevant.
-Stick to your timebox. Keep your eye on the clock, and once you’re at time, stop.
+Stick to your time-box. Keep your eye on the clock, and once you’re at time, stop.
 Be sure to keep in mind any time off, vacations, holidays, or other scheduling details during the sprint to accurately reflect the amount of work that can be accomplished.
 Similarly, try to have a measure of the team’s velocity before Sprint Planning begins.
 Remember: You’re planning for a sprint, not a marathon! Try not to get sidetracked by items that haven’t been determined ready by the Product Owner.
@@ -158,7 +170,7 @@ Anything else?
 If we’re getting technical, the sprint retrospective is not an official scrum ceremony. However, it’s a very common component of scrum and other methodologies because it and can help to identify areas of improvement and mitigate risk for future sprints. These meetings often illuminate recommendations to be better and mitigate risk moving forward. As a Scrum Master, be sure to coach the team to provide honest feedback & be respectful throughout the course of the ceremony.
  
  
-
+https://www.youtube.com/watch?v=xxhO54Ej_mM&list=PLFGoYjJG_fqpRV_dz6XMyESob_6fgv1Ej&index=4
 
 
 
