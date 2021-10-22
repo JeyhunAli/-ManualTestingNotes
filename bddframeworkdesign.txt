@@ -1,0 +1,332 @@
+
+
+
+Creating framework 
+1 . Dependencies, plugins , properties, cucumber adapter provided by tech.grasshopper to generate html, extend and spark report 
+Then we adding 
+maven.plugins,  surefire-plugin, failsafe-plugin 
+
+2 convert to cucumber project right click configure convert 
+
+3.under src/main/java 
+Package  com.pages ---- all the page action will be here locators constructors selenium page action 
+Package  Com.Driverfatory ---- all the driver related codes will be here most likely told driver process and delete all the cookies 
+Maximize screen 
+Package  com.utility   its for constant data, element utility
+Under utility package we are creating configreader class 
+This class is responsible for for reading browser value remote value highlight = true or false value 
+incognito = true or false 
+ 
+
+4. Under src/test/java 
+ Step definition, test runner, Hooks packages 
+
+5 Creating 
+Src/test/recourses
+Under this 
+Com.features, com.config
+
+
+According to the single-responsibility principle (SRP)
+
+ every class in a computer program should have responsibility over a single part of that program's functionality, 
+which it should encapsulate. All of that module, class or function's services should be narrowly aligned with that responsibility.
+
+And in designing framework also we have to follow this concept accordingly
+
+
+
+After folder structure starting code designing part 
+
+1 driver factory class under Package  Com.Driverfatory
+Applying thread local concept for parallel executing concept
+public class DriverFactory {
+
+	public WebDriver driver;
+
+	public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+
+	/**
+	 * This method is used to initialize the thradlocal driver on the basis of given
+	 * browser
+	 * 
+	 * @param browser
+	 * @return this will return tldriver.
+	 */
+
+	public WebDriver init_driver(String browserName) {
+		System.out.println("the browser value is: ----->>>> " + browserName);
+
+		if (browserName.equalsIgnoreCase("chrome")) {
+			WebDriverManager.chromedriver().setup();
+			tlDriver.set(new ChromeDriver());
+		}
+
+		else if (browserName.equalsIgnoreCase("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			tlDriver.set(new FirefoxDriver());
+		}
+
+		else if (browserName.equalsIgnoreCase("safari")) {
+			tlDriver.set(new SafariDriver());
+		}
+
+		else {
+			System.out.println("please pass correct browser " + browserName);
+		}
+
+		getDriver().manage().deleteAllCookies();
+		getDriver().manage().window().maximize();
+
+		return getDriver();
+
+	}
+
+	/**
+	 * this is used to get the driver with ThreadLocal
+	 * 
+	 * @return
+	 */
+
+	public static synchronized WebDriver getDriver() {
+
+		return tlDriver.get();
+	}
+
+}
+
+
+
+
+
+
+
+2 config reader class under Package  com.utility
+
+public class ConfigReader {
+	
+	private Properties prop;
+	
+	public Properties init_prop() {
+		
+		prop = new Properties();
+		
+		try {
+			FileInputStream ip = new FileInputStream("./src/test/resources/config/config.properties");
+			prop.load(ip);
+			
+		} catch (FileNotFoundException e) {
+             e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return prop;
+	}
+	
+
+}
+
+
+
+
+3.under Hooks package creating application Hooks class 
+Its just base test class looks like in testNG pre condition and post conditions 
+Its responsible for before after annotations it will execute browser before each scenario 
+One time activity, its precondition, because of this concept no need to define browser class in every step definition class 
+/**
+ * note in hooks before order 0 will execute first then 1 then 2 but in after
+ * order 1 will execute first then 0
+ * 
+ * 
+ * 
+ * 
+ * to start hooks concept first we need  DriverFactory object,
+ * then WebDriver, then we are creating object of ConfigReader class then Properties file object
+ * 
+ * driverFactory, Webdriver, configReader these are in private because its specific to this class 
+ * thats why using encapsulation concept 
+ * 
+ * at the end taking screenshot on fail method 
+ */
+
+public class ApplicationHooks {
+
+	
+	private DriverFactory driverFactory;
+	private WebDriver driver;
+	private ConfigReader configReader;
+	Properties prop;
+	
+	@Before(order = 0)
+	public void getProperty() {
+		configReader = new ConfigReader();
+		prop = configReader.init_prop();
+		
+	}
+	
+	@Before(order = 1)
+	public void launchBrowser() {
+		String browserName = prop.getProperty("browser");
+		driverFactory = new DriverFactory();
+		driver = driverFactory.init_driver(browserName);
+	
+	}
+	
+	@After(order = 0)
+	public void quitBrowser() {
+		driver.quit();
+	}
+	
+	@After(order = 1)
+	public void tearDown_And_TakeScreenShot_in_Fail_Scenario(Scenario scenario) {
+		if (scenario.isFailed()) {
+			//takeScreenShot
+			String ScreenShotname = scenario.getName().replaceAll(" ", "_");
+			byte[] sourcePath = ((TakesScreenshot) driver ).getScreenshotAs(OutputType.BYTES);
+			scenario.attach(sourcePath, "image/png", ScreenShotname);
+			
+		}
+		
+		
+	}
+	
+}
+
+
+
+
+
+4. After hooks starting our page class 
+In page class 3 concept is more important 
+// 1. By Locators: OR -> object repository 
+// 2. Constructor of the page class:
+// 3. page actions: features(behavior) of the page the form of methods:
+ example: 
+
+private WebDriver driver;
+
+	// 1. By Locators: OR 
+	private By emailId = By.id("email");
+	private By password = By.id("passwd");
+	private By signInButton = By.id("SubmitLogin");
+	private By forgotPwdLink = By.linkText("Forgot your password?");
+
+	// 2. Constructor of the page class:
+	public LoginPage(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	// 3. page actions: features(behavior) of the page the form of methods:
+
+	public String getLoginPageTitle() {
+		return driver.getTitle();
+	}
+
+	public boolean isForgotPwdLinkExist() {
+		return driver.findElement(forgotPwdLink).isDisplayed();
+	}
+
+	public void enterUserName(String username) {
+		driver.findElement(emailId).sendKeys(username);
+	}
+
+	public void enterPassword(String pwd) {
+		driver.findElement(password).sendKeys(pwd);
+	}
+
+	public void clickOnLogin() {
+		driver.findElement(signInButton).click();
+	}
+
+}
+
+
+
+
+
+
+5. Then we moving to our step def class 
+In step def class we creating object of the login page passing driver factory as constructor
+
+One more important thing in feature file we have  ---->>>>. When user gets the title of the page 
+Two times mentioned but in step def class we are creating only one generic method for to handle both
+
+Example: 
+
+public class LoginPageSteps {
+
+	private static String title;
+	private LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
+
+	@Given("user is on login page")
+	public void user_is_on_login_page() {
+
+		DriverFactory
+		        .getDriver()
+				.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+	}
+
+	@When("user gets the title of the page")
+	public void user_gets_the_title_of_the_page() {
+		title = loginPage.getLoginPageTitle();
+		System.out.println("Page title is: " + title);
+	}
+
+	@Then("page title should be {string}")
+	public void page_title_should_be(String expectedTitleName) {
+		Assert.assertTrue(title.contains(expectedTitleName));
+	}
+
+	@Then("forgot your password link should be displayed")
+	public void forgot_your_password_link_should_be_displayed() {
+		Assert.assertTrue(loginPage.isForgotPwdLinkExist());
+	}
+
+	@When("user enters username {string}")
+	public void user_enters_username(String username) {
+		loginPage.enterUserName(username);
+	}
+
+	@When("user enters password {string}")
+	public void user_enters_password(String password) {
+		loginPage.enterPassword(password);
+	}
+
+	@When("user clicks on Login button")
+	public void user_clicks_on_login_button() {
+		loginPage.clickOnLogin();
+	}
+
+
+}
+
+
+
+
+6. Then runner class 
+Example  
+
+package testrunners;
+
+import org.junit.runner.RunWith;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+		features = {"src/test/resources/AppFeatures"},
+		glue = {"stepdefinitions", "AppHooks"},
+		plugin = {"pretty"
+				}
+		
+		)
+
+public class MyTestRunner {
+
+}
+
+
+In runner class we define feature glue plugin tags monochrome 
+Dry run strict all these in runner class 

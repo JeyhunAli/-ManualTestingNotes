@@ -1,0 +1,75 @@
+Graphical interface of the Postman 
+
+If you want to pass any dynamic response value from post request to another request
+
+
+Example of test cases in postman 
+Here in second test as u. See I just have to validate point in one test 
+This concept helps more to be organize and have same related test cases in one 
+
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+
+pm.test("json Body check", function () {
+    var jsonData = pm.response.json();
+     pm.expect(jsonData.meta.pagination.limit).to.eql(20);
+     pm.expect(jsonData.meta.pagination.page).to.eql(1);
+
+});
+pm.test("user Data", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.code).to.eql(200);
+});
+
+
+
+
+Path parameters and query parameters 
+
+These additions to the url and uri 
+After question mark all the values are query param after forward slash everything is path param 
+But sometimes to make it more readable format when we adding path param we departing them with colon : then providing name 
+And value 
+For example  
+Here after slash and colon is the name of path param and value is written in Value section in postman
+The reason for that is later on easy to modify 
+
+https://example.com/:apiVersion/:applicationType 
+
+Query param example 
+After question mark is query param 
+https://example.com/:apiVersion/:applicationType?name=Testing
+
+In postman we have an option to disable or enable query parameters from param section 
+But there's no such option for path param 
+Because path param is part of the url direction 
+
+
+Organize the test in postman
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+ 
+ //declaring variables outsite of the test block
+ //changing var to const because its more modern way 
+ //and var name always we can choose 
+ //since we declared variable outside of the test block same code we can delete which is inside of the code 
+ var response = pm.response.json();
+
+pm.test("json Body check", function () {
+     pm.expect(response.meta.pagination.limit).to.eql(20);
+     pm.expect(response.meta.pagination.page).to.eql(1);
+
+});
+
+
+pm.test("user Data", function () {
+    pm.expect(response.code).to.eql(200);
+});
+
+//accesing response 
+console.log(response);

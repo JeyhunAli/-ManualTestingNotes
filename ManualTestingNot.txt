@@ -1,0 +1,97 @@
+
+ManualTesting Notes  
+BlackBoxTesting is basically testing the application functionality without looking into a code 
+how it's written in application called as BlackBox Testing.
+it's mainly done by Test Engineers.
+Testers usually take the application and testing it basic and critical scenarios they are actual
+ business flow of application here most important thing is Customer requirement 
+based on the requirement we write test cases in black box testing passing a lot inputs then 
+matching them with actual and expected result if theres failure raise a bug report it 
+once its fixed retesting   
+there 3 type of the blackBoxTesting 
+1.Functional testing
+2.Non-Functional Testing
+3.Regression Testing 
+
+DEFECT BUG ERROR FAILURE in Software Testing 
+differences between them 
+defect ----- when developers write a code for any application after that they are also testing it whether is working or not in their 
+local setUp if actual behavior is different from expected it means thats a defect....
+
+bug ----- when tester testing any application and finding that actual result different from expected result that leads to the bug 
+and also they say if bug accepted by developers that calls a bug bug is also known as informal name of defect 
+
+error ---- is while writing a code happening some mistakes and causing error even in compile time wont let u execute the code because 
+some syntax issue or 
+dead code or any kind of the coding is call as error
+
+failure ----- when the application is ready coded tested and its in production environment and the customer or end user facing some issue 
+that call as failure 
+
+Difference between Retesting and Regression Testing
+Retesting is testing previously failed test cases on the new build to verify that in the new build previously failed and raised as bug 
+those bug fixed or not thats called Retesting 
+Regression Testing is testing the unchanged part of application to test whether any kind of modification like adding new features removing 
+something are not 
+impacting unchanged part of the application that calls regression testing 
+when we compare them retesting is taking more priority than regression testing 
+when we do retesting we are planning them but regression testing we don't plan we just execute all the regression testing test cases 
+retesting is basically done on the failed test cases regression testing is done on the passed test cases usually we don't automate retesting 
+test cases but we automate regression testing test cases
+
+
+Software Development Life cycle --> is during developing any kind software what all the stages is there its call as development life cycle 
+stages 
+1. requirement collection 
+2. Feasibility requirement ----> hr team, business analyst, architect team, finance team they discuss about each and everything 
+all the resources enough engineers 
+3. design --- >> this stage contains 2 part low level design high level design 
+low level design each and every feature of application 
+high level design is over-role design general design of application 
+4.code 
+5. testing
+6 releasing --- this stage is like installation and implementation 
+7 maintenance ---> means after giving the software to the customer within 6 month or 1 year it depends any problem 
+then solving 
+
+
+What is Component Testing and it's types?
+component like in login page name address phone num email some like this fields call component 
+testing each and every component of application totally and regresly is calls component testing 
+like doing positive testing negative testing 
+in some company it calls as functional testing as well 
+here also we do under testing over testing and optimize testing 
+
+what is usability testing?--->> is how friendly the application testing the user friendliness of application is call test usability  for that testing how friendly is how accessible , how understanble designed . help center should be in application UA
+proper messages -- for example anything wrong passing data for  registration should throw some message for user to understand it 
+
+
+Reliability testing and Recovery Testing
+ this testing happening to check how reliable the application how its done 
+testing functionality of application again again it called Reliability testing for example testing login functionality multiple times to make sure how its reliably its basically testing application continuously and some period of time it calls Reliability testing
+recovery testing is to check how application behaving after crushes or any disaster for example google Chrome 
+when the laptop not responding or turning off 
+when u turning it on again chrome says restore pages thats is the recovery testing 
+
+
+Talking about test case design techniques and Types of the test case designing in Software testing life cycle			
+1 error guessing techniques --> is like thinking in a very creative way to write negative test cases in order to break			
+2.Equivalence class partitioning ---> means let's say you have text box field and it accepting numbers from 1-400			
+in this case in order to check each and every number if it's accepting or not u just breaking it down into small class like  			
+from 1-100, 101-200, 201-300, 301-400   and from each and every couple you passing one number let's say  first - 77, second 177 			
+third 266 , 4th 399  If it's accepting it means it passing and it's called as Equivalence class partitioning 			
+3.Boundary Value Analysis means testing the value around the given value like   if requirement says you have to test numbers between			
+20 and 25  then we write test 19 20 21 and 24 25 26 			
+4.Decision Table Techniques  ---> here we check multiple condition, combinations and rule criteria  here condition take as 			
+input and actions take as an output.  When I say condition and rules I take them as positive and negative TC bases based on condition			
+and I apply them in a appropriate way within rules 			
+5. State Transition Techniques --> this means testing some component of application with state what I mean by that let's you are trying 			
+to login the application after some time let's say after 6 attempts with wrong password u are blocked  the state of the steps . I mean all 			
+all these attempts called as state transition technique. Basically u are testing application with 6 times with correct credentials and checking			
+how application is behaving and after that 6 times until u block u are providing wrong credentials to check how state transition behaving 			
+
+
+
+
+
+ 

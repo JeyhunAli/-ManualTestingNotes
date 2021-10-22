@@ -1,0 +1,342 @@
+
+
+1. Download git SCM   https://git-scm.com/downloads
+First time always cloning process 
+Get the url then create folder directory inn your local machine 
+Then go to that directory in terminal type 
+Git clone url 
+Then import to your eclipse or intelije 
+
+ Git is version control system 
+Git and GitHub is not same 
+Git------>>> is control system used to track changes in computer files it’s a tool to manage your code 
+  GitHub---->>>> is hosting service for git repositories  basically git is tool GitHub is service to use the git
+
+Git --  first create a project on GitHub  give it a name make it public then 
+
+ Come to you local project copy your project path 
+Commands 
+cd  your path  enter 
+Ls -alt    means what are different files are available 
+git  init 
+git status
+ls -alt 
+
+copy this from GitHub 
+git remote add origin https://github.com/JeyhunAli/Vison-Live-Hubspot-Project.git
+git status 
+git add .       
+git status      -you will see all the files become green color 
+git commit -m  “this is my project code ready to push”
+git push origin master 
+ 
+
+let’s say you have code already exist in GitHub but in your local machine u made some changes 
+and you want to push it again to the GitHub 
+for that copy path of the project 
+
+cd path enter 
+git status enter 
+then you will see some modified files some new class or whatever 
+then need to add them to the index stage area 
+
+for that copy that file which is start with src 
+usually it comes in red color 
+
+git add   paste here copied file enter 
+
+if you have multiple of them do multiple time 
+git add paste copied file 
+
+git status enters
+git commit -m “your message” enter
+git push origin master or whatever you have branch there 
+
+now I’m going to talk about cloning process 
+
+first of all, creating one folder in laptop then copy folder path go to the terminal 
+cd paste-path enters 
+ls -alt 
+git clone URL enter
+then go to the eclipse right click on where all the projects then import either from existing 
+maven project or from git 
+cloning process we do when team lead or senior QA guy created GitHub repo then we as a testers 
+cloning then starting to work on that 
+
+
+
+now branching 
+
+first of all, in GitHub where project name creates new branch give it a name 
+then come to the eclipse make some changes in your existing file 
+then copy path of the project go to the terminal 
+cd path enters 
+git fetch && git checkout name of your new branch enter -- pointing to the new branch
+
+git branch enters  shows how many branches are available 
+new name become green color 
+git status enters 
+you will see some modified files in red color then 
+git add . enter 
+git commit -m “your message” enter
+git push origin here your new branch name instead of master enter 
+git push -u origin master here -u means add untracked file also which is not commited 
+
+PR process is done completely in GitHub website 
+
+
+After pull request if you want to switch the branch from branch to the master command for that 
+
+git fetch && git checkout master   enter 
+
+then 
+git pull origin master enter 
+
+
+when u clone the project from github after your teamlead added then u clone it 
+when it comes to push the code to remote 
+don’t push directly first 
+use git status, git add . git commit,  after git commit  if you type git branch u will see master branch is created now time to switch the branch for that git branch branchName
+then check again if it's created git branch once u see it's created then use git checkout branchName 
+now it will point to the new branch and now u can push the code to the new branch because 
+master branch is stable once u confirmed then u can push the master
+once everything is done then commit the code then 
+git push origin branchname
+
+
+
+
+
+Creating folder from terminal first going that directory cd ..
+Jeys-MBP:/ jey$ mkdir /Users/jey/Documents/gittxt
+Then git init 
+
+Then copy from github link.  Example 
+git remote add origin https://github.com/JeyhunAli/gittxt.git
+
+then git clone url 
+then creating file from terminal touch file1.txt
+
+then if you want to write something into this file 
+vim file1.txt 
+then press I insert some value or text
+
+then press esc and   :wq  or :wq!  to get out 
+
+then git status 
+
+then git add . 
+then git commit -m “your message”
+
+then git branch you will see master branch in green color 
+
+then git branch branch name – creating new branch 
+then git branch you will see two branch one master another one given 
+
+then switch the branch --- git checkout branchname
+
+then git branch it will point to created one 
+then vim file2.txt   press I enter your text then esc then :wq 
+do some changes 
+ls enter 
+
+then git add . 
+then git status
+then git commit -m “your message ”
+then git push origin test1
+
+in cmd line if you want to print what is written inside the file 
+then cat file1.txt enter
+
+
+In git  git push -u origin test2 
+-u It's means  pls add untracked file also which is not commited 
+
+
+And about how to to pr process for that pull request for 
+First click pull reguest add your comments assign it to specific person 
+Then click create pull request once your reguest get approved then merge it 
+
+
+
+
+Now some new topics in git about centralized repository and distributed repository 
+
+Centralized version control system  CVCS
+SVN VSS PERFORCE CVS
+
+DVCS distributed version control system 
+GIT BITBUCKET BAZAAR
+
+Git fetch and pull 
+This concept we use let's say our team lead or senior guy pushed already new code to the master branch after couple day 
+Another guy have to get it In his working set 
+No need to to everytime git clone after new code available on master branch here we use fetch or pull 
+
+Fetch and pull almost same but there is configuration is different it might be confusing 
+So pull directly pulling to working copy are and same time it goes to the local repo 
+
+But with the fetch first it goes to local repo then you have to merge it from local repo to working copy area 
+Differences between fetch and pull 
+With the fetch we have to use merge cmd in order to have it in local set
+But pull bring it directly working set
+
+Git pull origin master  you can pull updated verion of the project
+Git remote -v  this cmd will show you exact link if something changed in git repo
+
+Once u made some changes in github 
+While pushing new something it wont push 
+
+First u have to add . then commit 
+
+Then  u have to use git pull origin master
+ It will open comment section in terminal provide with explanation then exit 
+Press esc + : + wq! 
+It will escape 
+And then push your code 
+
+
+
+
+
+
+
+differences between fetch and pull is fetch is start with fetch to local repo then merge to working copy 
+but pull directly pull it to the working copy but same time it fetch to the local repo as well 
+
+
+
+
+
+
+
+
+
+ 
+
+
+Remove and delete commands 
+ 
+
+
+ Key cace089143dc637a9d0d529e0c2e9e3b
+
+Token ca437ce7f8c24b716b1e660013bd4331223b8ecf725537ffd92f60d5cccb6cb7
+
+
+
+
+
+
+
+
+
+1. git init
+2. git remote add origin https://github.com/naveenanimation20/March2021POMSeries.git
+3. add .gitignore file
+4. git status
+5. git add .
+6. git status
+7. git commit -m "first framework commit"
+8. git push origin master
+
+
+//2. A new member:
+1. get the repo url
+2. clone the repo in your local (drive)
+git clone <repo url>
+3. import the project in your eclipse
+4. start using it -- explore it, debug it, run it
+5. Made some changes in the code, or new file, update the files
+6. git status
+7. git add <files>
+8. git commit -m "reason"
+9. Raise a PR
+10. git push origin <branch>
+
+
+//3. Local Branching Process
+
+
+
+
+//4. PR Process
+
+
+
+
+//5. PULL the code
+
+
+-------------------------------------------------------------------------------------------------
+
+ When you clone a repository, it is added as a remote of yours, under the name origin. What you need to do now (as you're not using the old source anymore) is change origin's URL:
+
+$ git remote set-url origin http://github.com/YOU/YOUR_REPO
+If the original repository would update often and you want to get those updates from time to time, then instead of editing origin it would be best to add a new remote:
+
+$ git remote add personal http://github.com/YOU/YOUR_REPO
+Or maybe even call the old one upstream:
+
+$ git remote rename origin upstream
+$ git remote add origin http://github.com/YOU/YOUR_REPO
+Then, whenever you want to get changes from upstream, you can do:
+
+$ git fetch upstream
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

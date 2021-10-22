@@ -1,0 +1,56 @@
+Sql queries and answers 
+
+
+1.Select max salary from each departments ?
+SELECT Department, MAX(Salary) FROM Employee GROUP BY Departments
+
+2.Write A query to print name of Distinct Employee whose salary is between 3000 and 4000?
+SELECT distinct(firstName) from employee where salary between 3000 and 4000
+
+3.write a query to find employee whose salary is equal or greater than 40000?
+Select * from employee where where salary >= 40000
+
+4.write a query to find employee whose name starts with 'S'?
+Select * from employee where name LIKE 'S%'
+
+5.write  query to find max salary for female employee?
+Select max(salary) from employees where gender = 'female'
+Select * from employee where salary IN(Select max(salary) from employee where gender = 'female')
+
+6.find nTH HIGH salary from from employee
+Select * from(Select distinct salary from employee order by salary desc) where rownum <=3 
+Minus 
+Select * from(Select distinct salary from employee order by salary desc) where rownum <=2 
+
+7.find out second highest salary from employees?
+select max(salary) from employees where salary < (select max(salary) from employees);
+
+8.find out first name last name and max salary from employees
+Select first_name, last_name, salary from employees
+where salary = (select max(salary)from employees);
+
+9.highest salary ?
+SELECT DISTINCT(salary) FROM employees ORDER BY (salary) desc LIMIT 0,1
+
+10.second highest salary?
+SELECT DISTINCT(salary) FROM employees ORDER BY (salary) desc LIMIT 1,1
+
+11.third highest salary?
+SELECT DISTINCT(salary) FROM employees ORDER BY (salary) desc LIMIT 2,1
+
+12. 4th highest salary?
+SELECT DISTINCT(salary) FROM employees ORDER BY (salary) desc LIMIT 3,1
+
+13. nTh highest salary?
+To find nth highest salary put your number instead n consider sql starts from zero
+SELECT DISTINCT(salary) FROM employees ORDER BY (salary) desc LIMIT n,1
+
+Same thins can be apply for minimum salary
+14. Min salary ?
+ SELECT DISTINCT(salary) FROM employees ORDER BY (salary) ASC LIMIT 0,1
+
+15. SECOND MIN SALARY?
+ SELECT DISTINCT(salary) FROM employees ORDER BY (salary) ASC LIMIT 1,1
+
+16.find duplicate emails
+Select emails from employees Group by emails Having count(email)>1
