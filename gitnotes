@@ -1,5 +1,5 @@
 
-
+https://www.swtestacademy.com/jenkins-github-integration/
 1. Download git SCM   https://git-scm.com/downloads
 First time always cloning process 
 Get the url then create folder directory inn your local machine 
@@ -343,6 +343,8 @@ git add git_stash.txt
 Then 
 
 git stash
+U will get this message --> Saved working directory and index state WIP on practicaljavacode: b420f8e new class question that asked in interview
+
 
 Then pull it once again use 
 
@@ -358,10 +360,91 @@ Then y will get some error message to solve it use this
 
 
 And after that if u check the code u write is gone its stored in stash memory 
+Instead you will see the code from remote side this is the code from someone's merge to master 
+But to get your actual code back 
 To get it back u have to use command --> 
 
 Git stash pop 
+After this u will get this message -->  CONFLICT (add/add): Merge conflict in src/javaCodingChallenge/m1.java
+Here this critical scenario starting actual conflict discussion with team members 
+Then deciding to keep which code and delete which code in local side 
+Example 
 
+package javaCodingChallenge;
+
+public class m1 {
+
+	public static void main(String[] args) {
+		 
+<<<<<<< Updated upstream
+		System.out.println("this method remote ");
+=======
+		System.out.println("this method local ");
+>>>>>>> Stashed changes
+
+	}
+
+}
+
+Here you can clearly see remote method and local method with stashed changes after discussing you deleting one of this then continue your work 
+
+Then check the status of the code
+Git status
+
+Git add
+
+Git commit
+
+Git push origin master
+
+
+When u doing all this make sure your branch is pointing to what branch 
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Revert concept in GitHub   ----->>>>> return to (a previous state, practice, topic, etc.).
+Lets say you pushed wrong code and you want to revert it back 
+
+1.  Check the log  -->    git log --oneline
+Basically how it works this log will show you all the logs and the command now you gonna add it will change to to previous one 
+For example 
+
+bfb1719 (HEAD -> master, origin/master) new fun
+1382b75 Merge branch 'master' of https://github.com/JeyhunAli/all_about_java hey
+66db7c4 new lines added
+9f98340 Merge pull request #5 from JeyhunAli/practicaljavacode
+b420f8e (origin/practicaljavacode) new class question that asked in interview
+4f5ac13 new methods
+566f3f4 new classes
+9d9cc0d new methods
+eed12fb new classes
+9f353cb new classes and notes
+5e2ffa1 new classes added
+0b6917a new classes added
+36f6f4d new code new class about color
+8ed66b0 modified classes available
+ce3ba36 new file
+71559b9 new classes added
+c3342fc new classes added
+514fbf8 new code
+adc3b8a some new code added with notes
+4b8a345 some code added
+83ec209 java code added with notes
+9e4c5bc new code added
+129dd3b java code added
+
+
+Here first line is my last commit and it has id number at the beginning 
+Git reset --hard 66db7c4
+
+Then u will get this message 
+HEAD is now at 66db7c4 new lines added
+
+Now do this git command 
+Git push -f origin master 
+You will see the result your wrong push was deleted 
+Even deleted from local as well 
 
 
 

@@ -1,6 +1,10 @@
 to download jenkins go to  --->>>https://updates.jenkins-ci.org/download/war/
+https://get.jenkins.io/war-stable/
+https://www.swtestacademy.com/jenkins-github-integration/
+
 click on permalink to the latest after download unzip it
 go to exact location of the war file in your OS
+do not create a folder for jenkins.war file store it right inside downloads direction then go to your terminal go to downloads direction not to jenkins.war file direction then type java -jar jenkins.war it will work
 then go to the termianl
 java -jar jenkins.war  run this cmd on terminal or in cmd line  it will generate password
 If you have selenoid in your OS and its also running on port num 8080
@@ -9,6 +13,28 @@ Then u have to run this command for Jenkins in order to run it in different port
 At the company level devops or SRE TEAM 
 SRE site reliability engineers
 Jenkins only works with jdk 8 and 11
+
+-----------------------------------------------------------------------------------------------------
+
+Important plugins for Jenkins 
+1.allure Jenkins plugin
+2.testNG results
+3.html publisher
+4.blue ocean 
+5.maven integration 
+6.extended choice parameter --> this will help to run our test cases on different environments 
+
+To restart your Jenkins you can put on the url after localhost:8080/restart
+Or from terminal control+c 
+
+U can run your test cases from any branch in Jenkins 
+ 
+
+
+
+
+-----------------------------------------------------------------------------------------------------
+
 
 Once u installed u will get initiall setup is required and will provide 
 One token for u 

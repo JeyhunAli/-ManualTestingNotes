@@ -52,7 +52,8 @@ json is faster than xml that’s the differences between them have
 
 API ——>>>. API is happening through web services through mobile services and HTTP protocol 
 
-HTTP means Hypertext Transfer Protocol. HTTP is the underlying protocol used by the World Wide Web and this protocol defines how messages are formatted and transmitted, and what actions Web servers and browsers should take in response to various commands.
+HTTP means Hypertext Transfer Protocol. HTTP is the underlying protocol used by the World Wide Web and this protocol 
+defines how messages are formatted and transmitted, and what actions Web servers and browsers should take in response to various commands.
 
 
 
@@ -268,7 +269,8 @@ POSTMAN API TOOL
 
 
 
-Postman: Postman is an API (application programming interface) development tool which helps to build, test and modify APIs. ... It has the ability to make various types of HTTP requests (GET, POST, PUT, PATCH), saving environments for later use.
+Postman: Postman is an API (application programming interface) development tool which helps to build, test and modify APIs. ... 
+It has the ability to make various types of HTTP requests (GET, POST, PUT, PATCH), saving environments for later use.
 
 
 Postman is API CLIENT you can simply call the API and execute the API
@@ -401,7 +403,8 @@ In uri level {{yourVariableName}}
 
 
 Api authentication 
-OAuth doesn't share password data but instead uses authorization tokens to prove an identity between consumers and service providers. OAuth is an authentication protocol that allows you to approve one application interacting with another on your behalf without giving away your password.
+OAuth doesn't share password data but instead uses authorization tokens to prove an identity between consumers and service providers.
+OAuth is an authentication protocol that allows you to approve one application interacting with another on your behalf without giving away your password.
 OAuth, which stands for “Open Authorization,” allows third-party services to exchange your information without you having to give away your password.
 
 

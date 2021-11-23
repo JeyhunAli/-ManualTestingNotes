@@ -1,0 +1,266 @@
+The Apache JMeter application is open source software,
+ a 100% pure Java application designed to load test 
+functional performance test.
+
+generally
+functional testing we cover all the
+positive and negative scenarios but in
+performance testing we always cover
+basic happy path positive scenarios
+right because see think about customer
+point of view customer is always looking
+into 95% of the customer or less in 90%
+of the customer on Amazon website how
+exactly they will do it they will just
+search the product Add to Cart make the
+payment and then get the order today's
+that's a very basic flow right in terms
+of functionality so most of the 90% 95%
+of the users they will follow the same
+rule they will follow the same process
+but hardly here and there 5% or 10% of
+the users
+they will do some here and there some
+other things so in that case we don't
+need to generate a huge amount of load
+the load should be generated only for
+basic happy path scenarios
+
+In performance testing we don't design the
+framework in performance testing movie
+automate the scenarios
+
+we don't design the
+framework in performance testing movie
+automate the scenarios we do the
+scenario testing with respect to
+performance for all the business
+workflows or for all the very high level
+business workflows ranks we do the
+benchmarking and all those things and
+lot of things we will be covering 
+
+
+  Common terms used in performance testing J-meter
+While doing performance testing we are verifying quality
+ attributes also of the
+system such as scalability reliability
+and what kind of resources being used
+by the system so that's why these
+terminologies are very important
+
+connection time response time and throughput
+connection time is to connect to the server from the client
+so let's
+see my request connection
+ it's taking around 75
+milliseconds to connect to the server so
+this is a request that we are sending
+   connection will
+happen with the help of tcp/ip protocol
+the transfer connection protocol and IP
+address we have to give in all those
+things
+Response Time lets say server responding back sending data which we required
+Within 25-30 milliseconds 
+throughput ---> is when we are doing multiple transactions per seconds, per minutes 
+
+The Throughput: is the number of requests per unit of time (seconds, minutes, hours)
+ that are sent to your server during the test
+
+What is bottleneck? 
+Lets say you have written some really bad code
+and then your request is stuck over there
+and server is not able to respond back
+so that is called a bottleneck it means
+my server got stuck over there my
+servers Jam over here and then we are
+not able to send it back to the client
+so in that case we are getting a
+bottleneck situation that it means you
+have written either such a poor code
+like that so it's going to degrade the
+performance of the application of the
+system as a whole so that prevents
+further processing or significantly be
+delays the performance of the system as
+a whole so this is called bottleneck
+
+What is capacity?
+capacity means the degree to
+which a system can perform data
+processing until performance degrades
+it means for example it is number of new
+customers being added to a database so
+what is the capacity of database how much data 
+can handle at the given time frame
+
+What is concurrency in J-meter
+Concurrency means multiple computations are happening at the same time.
+For example the number
+of transactions synchronized to happen
+at exactly at the same time it means
+let's see I'm searching for Apple
+MacBook and ten thousand people are
+there ten thousand users are there
+assume that they are behaving like
+a virtual user and searching for the
+same Samsung phone or Apple MacBook and
+doing the same exact transaction
+
+Load testing means whenever we are doing performance testing or load testing in our application we are trying to make sure Each and every component works great a how we are testing so for each and every component for example search text or Login button or Login page we are sending a lot of the loads to make sure performing as expected 
+
+non-functional requirement?
+here you have to check the
+reliability you have 
+to check the performance we have to
+check the stability you have to check
+the usability of the system these are
+called non-functional requirement of a
+particular system
+
+Performance engineering 
+most of the time performance engineering is separate team in performance testing and they have a some activities they are checking the requirements and checking the what's the weaknesses of the applications and they always checking the how non-functional requirements is applied to Performance testing 
+
+Performance testing plan 
+typically this is the new written document that details it's all about the how we are going to do our performance testing so we are testing we are checking the objectives Scopes how we are going to approach what's the delivery time what's the schedule what is the risk and data we are planning for performance testing 
+
+Reliability testing in performance testing
+ so this is basically is you know just asking like how reliable your application how we can trust it
+ reliability degree which system provides the same result for the same action overtime under load 
+
+Scalability testing in performance testing 
+is basically related to the hardware issues for example if we are increasing the available Hardware resources within a server and they are testing how is impacting how it's behaving after doing that this is basically scalability testing 
+
+Soak testing
+ is the type of the performance testing we are  pushing the loads in the specific time frame lets say  in the morning from 9 to 12 or at  the evening from 5 to 7 just making sure that specific component of the application is behaving as expected 
+
+Spike testing in performance testing
+ we are checking that performance of application let see in the normal term-Condition  application is behaving as expected by the in the holiday season in Black Friday or in Christmas time a lot of  users loads  a lot of the inputs going to the application and that time it's hitting to the peak level and that's the Graph shows Spike In performance testing 
+
+Stability testing in performance testing
+ it's a basically shows the failures errors on the normal usage for example let say we  have hundreds of the application over five thousand or ten thousand applications and we have to register all of them so while registering all of them we are checking how stable is the  application 
+
+
+Stress-testing is typical performance testing in this testing we checking we are testing component of the application by loading Beyond targeted inputs loads  so what does it mean by that let's say there is a bulb which is a 60-watt and we are just loading it by a 65 70 and just making sure that how is behaving under heavy load so this is basically stress testing
+Stress Testing: Intentionally tries to break the software by simulating a number of users that greatly exceeds expectations. The launch day of a new iPhone and the sudden spike in user traffic on the Apple website is a good example of 
+
+Volume Testing: Checks that the software can handle and process a large amount of data at once without breaking, slowing down, or losing any information.  
+
+Difference between load testing and the stress testing in performance testing is testing is basically we are loading the application with a lot of inputs gradually like step by step one time we are passing 10000 user 20000 30,000 users but in stress testing is going Beyond of the target it's going suddenly let's say my benchmarking is around like 20 to 30,000 but suddenly it goes over 50, 60 Thousands Threads  that's the difference between load testing and stress testing 
+
+Transaction value model 
+is basically  the document which is shows the all the  users journey Associated to the load and the basically it's a this document is include information regarding the geographical localization from where all the interaction is expected to our system and what method of the interaction for example mobile or desktop 
+
+
+
+These performance criteria -- the design, normal and peak loads, system resources, dependencies, workload characteristics and time -- are prerequisites for performance testing and should be part of any strategy.
+
+What are the parts of performance testing?
+Identify the testing environment. 
+Identify performance metrics. 
+Plan and design performance tests. 
+Configure the test environment.
+Implement your test design. 
+Execute tests. 
+Analyze, report, retest.
+
+What is TPS in load testing?
+Transaction per second (TPS) is the number of transactions executed per second. In other words, it can be calculated based on how many transactions are executed over a certain duration of the test and then calculate it for a second
+
+
+Why Do Performance Testing?
+provides stakeholders with concrete information about the speed, stability, and scalability of the software. Without performance testing, the software runs the risk of suffering issues with speed and reliability on release.
+
+1.Reduce Productivity Cost by Reducing System Crashes.
+2.Ensure that the software is fast, stable, and can handle multiple users.
+3.Discover performance bottlenecks.
+In the developmental stage, performance testing provides a clearer picture of what needs to be improved in terms of speed, stability, and resource usage. Without performance testing, the software could release with several serious errors such as: running slowly with multiple users, crashing due to user overload, and inconsistent user experience across different operating systems and browsers. 
+
+There are 5 main types of performance testing. 
+Capacity Testing
+Load Testing
+Volume Testing
+Stress Testing
+Soak Testing
+
+4 Common Performance Problems
+Performance testers will typically run into at least one of these four problems during testing.
+Long Load Time
+Poor Response Time
+Poor Scalability
+Bottlenecking
+
+1. Long Load Time
+Nobody enjoys staring at their screen for 30-60 seconds waiting for an application to load. It’s boring, especially if it’s an app you open multiple times a day. Except for some seriously beefy software, most applications, web pages, and software should be able to open in under a few seconds. Load tests typically catch any software that has trouble opening within an acceptable time frame.
+
+2. Poor Response Time
+Similar to the problem of long load times. It’s equally frustrating when, after finally opening the app, navigating between menus or inputting data also takes 30-60 seconds to complete. Think about the apps you use every day, how many of them make you wait around for a page to load? Likely not very many. Long load times make people lost interest.
+
+3. Poor Scalability
+This is casually referred to as the ‘slashdot effect’ or the ‘internet hug of death.’ Have you ever heard about an interesting website someone shared with you on Facebook, only when you clicked on the link the page didn’t load? That’s because you and a million other people all wanted to check out the cool little site and it didn’t have the infrastructure to handle a sudden influx of users. A graph of their site traffic would look something like this:
+
+4. Bottlenecking
+Bottlenecks are caused when a system poorly allocates its processing power. If your software requires the users CPU to run at 100%, that means they have no memory left to spare to run additional tasks. This is bad and often leads to overheating and a significant drop in performance. There are several places bottlenecking can occur. Some of the most common are:
+CPU    ---->>> Central Processing Unit
+Memory
+GPU    ---->>> graphics processing unit
+Disk Usage
+
+
+
+
+What is example of load testing ?
+Some basic examples of load testing are: Testing a printer by transferring a large number of documents for printing. Testing a mail server with thousands of concurrent users. Testing a word processor by making a change in the large volume of data
+
+
+What do you look for in a load test?
+Here's a list of the most important results to look at in your load tests and how you should be working with them.
+Page Load Time. You absolutely want to know the average page load time for each page in your scenario. 
+Response Load Time.
+Errors and Warning.
+Request and Response Throughput. 
+Hosts. 
+Related Resource.
+
+
+Can load testing be done manually?
+Load testing can be done manually as well as by using a tool. But manual load testing is not advised as we don't test the application for a lesser load.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

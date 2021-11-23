@@ -4,7 +4,39 @@ Cucumber is just a framework or its a tool to apply when we have BDD
 
 TDD   ----   BDD  -------  ATDD
 
-TDD   is always writing test cases first most of the time they are fail then making them work perfectly fine then refactoring it making it very suitable and trustworthy and solid code then production this cycle is all around in the add approach u have to keep enhancing and keep repeating this cycle entirely project to make it Solid 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is TDD BDD and ATDD?
+tdd bdd atdd
+Definition. TDD is a development technique that focuses more on the implementation of a feature. 
+BDD is a development technique that focuses on the system's behavior. ATDD is a technique similar 
+to BDD focusing more on capturing the requirements. Participants.
+
+Test-Driven Development (TDD) is a form of testing that has a specific flow. First, a test is written. 
+Then, the tests are run to prove that the test fails - this is called "red". Code is written such that 
+the test passes - this is called "green". Finally, the code is refactored and the test suite is run and
+ is kept "green" since the tests continue to pass. The process repeats. In TDD, the tests are typically 
+written at a unit level, testing individual methods or functions or classes. TDD works to drive the design 
+of the code with respect to its interfaces.
+
+Acceptance Test-Driven Development (ATDD) is an extension to TDD. The tests that are written are written at
+ an acceptance test level. Rather than encoding tests at the level of methods or functions or classes, they 
+are written to define system behaviors. ATDD tests tend to help capture requirements and ensure that the 
+system has the intended behavior.
+
+Neither TDD nor ATDD require a particular format for tests. However, Behavior-driven development focuses on 
+encoding the intended behavior using domain language. BDD tools take advantage of tools that allow tests to 
+be written in a language that includes domain-specific terms, resulting in tests that are readable to both 
+technical and non-technical stakeholders.
+
+So, TDD and ATDD are levels of testing. TDD focuses on lower levels - unit and perhaps integration tests. 
+ATDD focuses on system tests. Either of these can be combined with BDD to express tests to be more widely
+ accessible to the variety of stakeholders involved in system development.
+
+
+
+TDD   is always writing test cases first most of the time they are fail then making them work perfectly 
+fine then refactoring it making it very suitable and trustworthy and solid code then production this cycle 
+is all around in the add approach u have to keep enhancing and keep repeating this cycle entirely project to make it Solid 
 ITS MORE FOCUSED ON unit level test cases 
 
 BDD   is extension of the TDD HERE another concept is feature file scenarios and written test steps in gherkin language given when then 
@@ -15,6 +47,8 @@ writing test cases first most of the time they are fail then making them work pe
 ATDD    acceptance test driven development 
 This is high level approach on top of the BDD  main guys PO business analyst 
 Inside THE ATDD  business or PO deciding what approach to use either is BDD or TDD 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
@@ -41,6 +75,8 @@ Those methods for example excel utils or java methods utils
 Either pretty format 
 For example 
 
+package testRunner;
+
 import org.junit.runner.RunWith;
 
 import io.cucumber.junit.Cucumber;
@@ -49,15 +85,29 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		
-			features = {"src/test/resources/Feature/Amazon_Search.feature"},
-			glue = {"stepdefinition", "myHooks"},
-			plugin = {"pretty"}
+		
+		features = "src/test/resources/Feature/GoogleSearch.feature",
+		glue = {"stepdefinition", "myHooks"},          // where exactly your stepdefinition package
+		tags = "@smoke",
+		plugin = {"pretty",
+				     "json: target/MyReports/report.json",
+				"junit: target/MyReports/report.xml"
+		},
+		publish = false,       // this will generate report link on the console
+		dryRun = false,         // this will check all the steps in feature file
+		monochrome = false,      // this for better allignment in console 
+		strict = true  //this already deprecated in cucumber 6.9 purpose of this is used to be 
+		               // if any steps missing from feature file by doing strinct = false we can skip it 
+		               //but now we can use only for strict = true 
+		
+		
+		
 		
 		)
 
+public class googlesearch {
 
-public class AmazonSearchTest {
-
+}
 
 
 Runner class first interaction with feature file based on the tags we provided 
@@ -104,6 +154,11 @@ https://marketplace.eclipse.org/content/cucumber-eclipse-plugin
 https://github.com/cucumber/cucumber-java-skeleton/blob/main/pom.xml
 This url will help you to make sure u have updated version of cucumber plugin scroll down find work with --->> url 
 Copy. That url and go to the eclipse then check it
+
+Creating src/test/resources folder all the feature files available here
+To map feature file with step definition under src/test/java creating step definition file all the mapped codes available here
+Running feature file getting all the snippets code below then copy paste into step definition class
+
 After implementing snippets code to the step def go back to the feature file make sure green color each and every steps are marked 
 In feature file press command or ctrl in windows and hover on steps you will see all the steps are lined up u can click and it jump on that method in step definition class 
 
@@ -225,7 +280,10 @@ For detail notes and info check add framework demo in GitHub
 
 
 
-
+Hot to click with submit click action java script 
+Javascript best click it can even click hidden elements 
+With the html tag hidden or disable 
+Get text and get attribute both can use find out the text written on the elements
 
 
 
